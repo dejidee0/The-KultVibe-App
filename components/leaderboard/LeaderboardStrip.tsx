@@ -1,0 +1,99 @@
+'use client';
+
+import React, { useState } from 'react';
+import { Money01Icon } from '@hugeicons/core-free-icons';
+import SectionHeader from '@/components/ui/SectionHeader';
+
+const PLAYERS = [
+  { rank: 1, name: '@GhostAlpha',    city: 'Lagos',         game: 'COD Mobile',  earnings: '₦45,000' },
+  { rank: 2, name: '@ZuluSquad',     city: 'Abuja',         game: 'PUBG Mobile', earnings: '₦38,500' },
+  { rank: 3, name: '@Kelechi_FC',    city: 'Port Harcourt', game: 'EA FC',       earnings: '₦29,000' },
+  { rank: 4, name: '@AmaGamer',      city: 'Kano',          game: 'Free Fire',   earnings: '₦21,500' },
+  { rank: 5, name: '@Shadow_NG',     city: 'Lagos',         game: 'COD Mobile',  earnings: '₦18,000' },
+  { rank: 6, name: '@DrumKingKano',  city: 'Kano',          game: 'Music',       earnings: '₦15,750' },
+  { rank: 7, name: '@AfroBeatz',     city: 'Lagos',         game: 'Music',       earnings: '₦14,200' },
+  { rank: 8, name: '@ProCoderLagos', city: 'Lagos',         game: 'Tech',        earnings: '₦12,000' },
+];
+
+function rankStyle(rank: number) {
+  if (rank === 1) return { bg: '#F0B429', text: 'text-black' };
+  if (rank === 2) return { bg: 'rgba(255,255,255,0.20)', text: 'text-white' };
+  if (rank === 3) return { bg: 'rgba(205,127,50,0.30)', text: 'text-[#CD7F32]' };
+  return { bg: 'rgba(255,255,255,0.07)', text: 'text-white/40' };
+}
+
+function PlayerCard({ rank, name, city, game, earnings }: typeof PLAYERS[0]) {
+  const { bg, text } = rankStyle(rank);
+  return (
+    <div className="bg-kv-card rounded-xl p-4 flex-shrink-0 w-[200px] cursor-pointer">
+      <div className="flex items-center gap-3 mb-3">
+        <div
+          className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-medium flex-shrink-0 ${text}`}
+          style={{ background: bg }}
+        >
+          {rank}
+        </div>
+        <img
+          src={`https://api.dicebear.com/7.x/bottts/svg?seed=${name}&backgroundColor=0D0D14`}
+          width={32}
+          height={32}
+          className="rounded-full flex-shrink-0"
+          alt={name}
+        />
+        <div className="min-w-0">
+          <p className="text-xs font-medium text-white truncate">{name}</p>
+          <p className="text-[10px] text-white/40">{city}</p>
+        </div>
+      </div>
+
+      <span className="text-[10px] bg-white/7 text-white/50 px-2 py-1 rounded-md mb-3 inline-block">
+        {game}
+      </span>
+
+      <div>
+        <p className="text-[10px] text-white/35 mb-1">Earnings this week</p>
+        <p className="text-base font-medium text-[#F0B429]">{earnings}</p>
+      </div>
+    </div>
+  );
+}
+
+export default function LeaderboardStrip() {
+  const [paused, setPaused] = useState(false);
+
+  return (
+    <div>
+      <div className="mb-4">
+        <SectionHeader icon={Money01Icon} title="Top earners this week" cta="Full leaderboard" />
+      </div>
+
+      {/* Marquee container */}
+      <div
+        className="overflow-hidden"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <div
+          className="flex gap-3"
+          style={{
+            animation: 'leaderboard-scroll 28s linear infinite',
+            animationPlayState: paused ? 'paused' : 'running',
+            width: 'max-content',
+          }}
+        >
+          {/* Render twice for seamless loop */}
+          {[...PLAYERS, ...PLAYERS].map((p, i) => (
+            <PlayerCard key={i} {...p} />
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes leaderboard-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+    </div>
+  );
+}

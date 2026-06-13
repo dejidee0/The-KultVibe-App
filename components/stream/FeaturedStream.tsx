@@ -1,0 +1,199 @@
+'use client';
+
+import React, { useState, useRef, useCallback } from 'react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import {
+  EyeIcon,
+  VolumeHighIcon,
+  VolumeOffIcon,
+  FullScreenIcon,
+  SidebarRightIcon,
+  GiftIcon,
+} from '@hugeicons/core-free-icons';
+import LiveChat from '@/components/stream/LiveChat';
+import GiftAnimation from '@/components/stream/GiftAnimation';
+import GiftPicker from '@/components/stream/GiftPicker';
+
+function StreamerHoverCard({ visible }: { visible: boolean }) {
+  return (
+    <div
+      className="absolute bottom-[calc(100%+10px)] left-0 w-72 rounded-2xl p-4 flex flex-col gap-3"
+      style={{
+        background: 'rgba(16, 16, 26, 0.95)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        border: '1px solid rgba(255,255,255,0.10)',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
+        zIndex: 50,
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(6px)',
+        pointerEvents: visible ? 'auto' : 'none',
+        transition: 'opacity 0.2s ease, transform 0.2s ease',
+      }}
+    >
+      <div className="flex items-center gap-3">
+        <img
+          src="https://api.dicebear.com/7.x/bottts/svg?seed=GhostAlpha&backgroundColor=0D0D14"
+          width={40}
+          height={40}
+          className="rounded-full border-2 border-emerald-500/40 flex-shrink-0"
+          alt="GhostAlpha"
+        />
+        <div>
+          <div className="flex items-center gap-1">
+            <span className="text-sm font-bold text-white">GhostAlpha</span>
+            <span className="text-emerald-400 text-xs">✓</span>
+          </div>
+          <span className="text-xs text-white/40">@GhostAlpha · 24.5K followers</span>
+        </div>
+      </div>
+
+      <p className="text-xs text-white/50 leading-relaxed -mt-1">
+        Pro COD Mobile player 🎮 | Top 50 Africa | Content creator &amp; grinder. Streaming daily from Lagos.
+      </p>
+
+      <div className="flex gap-2">
+        <button className="flex-1 text-xs border border-white/20 text-white/80 font-semibold py-1.5 rounded-lg hover:bg-white/10 transition-colors">
+          Follow
+        </button>
+        <button className="flex-1 text-xs bg-[#10B981] text-white font-semibold py-1.5 rounded-lg hover:bg-emerald-400 transition-colors flex items-center justify-center gap-1.5">
+          <HugeiconsIcon icon={GiftIcon} size={13} color="currentColor" strokeWidth={1.5} />
+          Subscribe
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default function FeaturedStream() {
+  const [isMuted, setIsMuted] = useState(true);
+  const [showChat, setShowChat] = useState(true);
+  const [showCard, setShowCard] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const toggleFullscreen = useCallback(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    if (!document.fullscreenElement) {
+      el.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="grid overflow-hidden rounded-xl"
+      style={{
+        gridTemplateColumns: showChat ? '1fr 280px' : '1fr',
+        height: 400,
+        background: '#111118',
+        border: '1px solid rgba(255,255,255,0.07)',
+        transition: 'grid-template-columns 0.3s ease',
+      }}
+    >
+      {/* Video and info column */}
+      <div className="h-full overflow-hidden" style={{ position: 'relative' }}>
+        {/* Video Area */}
+        <div className="group relative w-full h-full flex flex-col justify-end overflow-hidden">
+          <video
+            ref={videoRef}
+            src="/videos/featured-stream.mp4"
+            autoPlay
+            loop
+            muted={isMuted}
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          {/* Vignette overlay */}
+          <div
+            className="absolute inset-0 z-10"
+            style={{
+              background: 'linear-gradient(to top, rgba(0,0,0,0.80) 0%, transparent 60%)',
+            }}
+          />
+
+          {/* LIVE badge and timer */}
+          <div style={{ position: 'absolute', top: 12, left: 12, zIndex: 10 }} className="flex items-center gap-2">
+            <span className="bg-[#FF4D6D] text-white text-xs font-medium px-2 py-1 rounded">LIVE</span>
+            <span className="bg-black/60 text-white/80 text-xs px-2 py-1 rounded">1:24:07</span>
+          </div>
+
+          {/* Viewer count */}
+          <div style={{ position: 'absolute', top: 12, right: 12, zIndex: 10 }} className="flex items-center gap-1 bg-black/60 rounded px-2 py-1">
+            <HugeiconsIcon icon={EyeIcon} size={12} className="text-white/60" color="currentColor" strokeWidth={1.5} />
+            <span className="text-xs text-white/80">1,280 viewers</span>
+          </div>
+
+          {/* Gift overlays */}
+          <GiftAnimation />
+          <GiftPicker />
+        </div>
+
+        {/* Streamer Info Bar */}
+        <div
+          className="flex items-center justify-between px-4 py-3 border-t border-white/[0.07]"
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            background: 'rgba(255, 255, 255, 0.01)',
+            backdropFilter: 'blur(40px) saturate(220%) brightness(1.05)',
+            WebkitBackdropFilter: 'blur(40px) saturate(220%) brightness(1.05)',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06)',
+            zIndex: 20,
+          }}
+        >
+          {/* Hoverable streamer profile */}
+          <div
+            className="relative flex items-center gap-3 cursor-pointer"
+            onMouseEnter={() => setShowCard(true)}
+            onMouseLeave={() => setShowCard(false)}
+          >
+            <StreamerHoverCard visible={showCard} />
+            <img
+              src="https://api.dicebear.com/7.x/bottts/svg?seed=GhostAlpha&backgroundColor=0D0D14"
+              width={32}
+              height={32}
+              className="rounded-full flex-shrink-0"
+              alt="GhostAlpha"
+            />
+            <div>
+              <p className="text-sm font-medium text-white">@GhostAlpha</p>
+              <p className="text-xs text-white/40">24.5K followers</p>
+            </div>
+          </div>
+
+          {/* Video controls */}
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => setIsMuted(!isMuted)}
+              className="p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+            >
+              <HugeiconsIcon icon={isMuted ? VolumeOffIcon : VolumeHighIcon} size={16} color="currentColor" strokeWidth={1.5} />
+            </button>
+            <button
+              onClick={toggleFullscreen}
+              className="p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+            >
+              <HugeiconsIcon icon={FullScreenIcon} size={16} color="currentColor" strokeWidth={1.5} />
+            </button>
+            <button
+              onClick={() => setShowChat((v) => !v)}
+              className={`p-2 rounded-lg transition-colors ${showChat ? 'text-emerald-400 bg-emerald-500/10' : 'text-white/60 hover:text-white hover:bg-white/10'}`}
+            >
+              <HugeiconsIcon icon={SidebarRightIcon} size={16} color="currentColor" strokeWidth={1.5} />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Live chat */}
+      {showChat && <LiveChat />}
+    </div>
+  );
+}
