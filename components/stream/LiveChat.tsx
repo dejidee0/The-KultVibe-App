@@ -135,8 +135,7 @@ export default function LiveChat() {
       </div>
 
       {/* Input Row */}
-      <div className="px-3 pb-3 flex flex-col gap-2 flex-shrink-0">
-        {/* Input pill */}
+      <div className="px-3 pb-3 flex-shrink-0">
         <div
           className="flex items-center gap-2 px-3 py-2 rounded-xl"
           style={{ background: 'rgba(255,255,255,0.06)' }}
@@ -152,16 +151,10 @@ export default function LiveChat() {
           >
             <HugeiconsIcon icon={GiftIcon} size={16} color="currentColor" strokeWidth={1.5} />
           </button>
+          <button className="flex-shrink-0 text-white/40 hover:text-white transition-colors">
+            <HugeiconsIcon icon={Sent02Icon} size={16} color="currentColor" strokeWidth={1.5} />
+          </button>
         </div>
-        {/* Send button full width */}
-        <button className="w-full flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-semibold text-white transition-colors"
-          style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981' }}
-          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(16,185,129,0.25)')}
-          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(16,185,129,0.15)')}
-        >
-          <HugeiconsIcon icon={Sent02Icon} size={14} color="currentColor" strokeWidth={1.5} />
-          Send
-        </button>
       </div>
     </div>
   );

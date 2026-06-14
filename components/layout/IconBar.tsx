@@ -1,11 +1,15 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { GamepadIcon, Wallet01Icon } from '@hugeicons/core-free-icons';
 import { topNavItems } from './sidebarData';
 
 export default function IconBar() {
+  const pathname = usePathname();
+
   return (
     <div
       className="flex flex-col items-center py-4"
@@ -16,42 +20,46 @@ export default function IconBar() {
       }}
     >
       {/* Logo */}
-      <div
-        className="flex items-center justify-center rounded-lg flex-shrink-0"
-        style={{ width: 40, height: 40, background: '#10B981' }}
-      >
-        <HugeiconsIcon icon={GamepadIcon} size={20} color="#fff" strokeWidth={1.5} />
-      </div>
+      <Link href="/">
+        <div
+          className="flex items-center justify-center rounded-lg flex-shrink-0"
+          style={{ width: 40, height: 40, background: '#10B981' }}
+        >
+          <HugeiconsIcon icon={GamepadIcon} size={20} color="#fff" strokeWidth={1.5} />
+        </div>
+      </Link>
 
       <div className="flex-1" />
 
       {/* Nav - vertically centred */}
       <nav className="flex flex-col gap-1">
-        {topNavItems.map(({ icon, label }) => {
-          const isActive = label === 'Home';
+        {topNavItems.map(({ icon, label, href }) => {
+          const isActive = pathname === href || (href !== '/' && pathname.startsWith(href));
           return (
             <div key={label} className="relative group/tip">
-              <button
-                className="flex items-center justify-center rounded-lg transition-all duration-150"
-                style={{
-                  width: 40,
-                  height: 40,
-                  color: isActive ? '#10B981' : 'rgba(255,255,255,0.4)',
-                  background: isActive ? 'rgba(16,185,129,0.12)' : 'transparent',
-                }}
-                onMouseEnter={(e) => {
-                  if (isActive) return;
-                  (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.07)';
-                  (e.currentTarget as HTMLButtonElement).style.color = '#fff';
-                }}
-                onMouseLeave={(e) => {
-                  if (isActive) return;
-                  (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
-                  (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.4)';
-                }}
-              >
-                <HugeiconsIcon icon={icon} size={20} color="currentColor" strokeWidth={1.5} />
-              </button>
+              <Link href={href} tabIndex={-1}>
+                <button
+                  className="flex items-center justify-center rounded-lg transition-all duration-150"
+                  style={{
+                    width: 40,
+                    height: 40,
+                    color: isActive ? '#10B981' : 'rgba(255,255,255,0.4)',
+                    background: isActive ? 'rgba(16,185,129,0.12)' : 'transparent',
+                  }}
+                  onMouseEnter={(e) => {
+                    if (isActive) return;
+                    (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.07)';
+                    (e.currentTarget as HTMLButtonElement).style.color = '#fff';
+                  }}
+                  onMouseLeave={(e) => {
+                    if (isActive) return;
+                    (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
+                    (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.4)';
+                  }}
+                >
+                  <HugeiconsIcon icon={icon} size={20} color="currentColor" strokeWidth={1.5} />
+                </button>
+              </Link>
               {/* Tooltip */}
               <div
                 className="pointer-events-none absolute left-[48px] top-1/2 -translate-y-1/2 px-2.5 py-1 rounded-md text-xs font-medium text-white whitespace-nowrap opacity-0 group-hover/tip:opacity-100 transition-opacity duration-150"

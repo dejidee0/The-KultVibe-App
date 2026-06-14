@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Link from 'next/link';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { EyeIcon, PlayCircleIcon } from '@hugeicons/core-free-icons';
 
 type StreamCardProps = {
+  id?: string;
   title: string;
   streamer: string;
   city: string;
@@ -17,6 +19,7 @@ type StreamCardProps = {
 };
 
 export default function StreamCard({
+  id,
   title,
   streamer,
   city,
@@ -41,7 +44,7 @@ export default function StreamCard({
     }
   };
 
-  return (
+  const card = (
     <div
       className="group flex flex-col rounded-lg overflow-hidden cursor-pointer"
       style={{
@@ -125,4 +128,10 @@ export default function StreamCard({
       </div>
     </div>
   );
+
+  return id ? (
+    <Link href={`/streams/${id}`} className="block">
+      {card}
+    </Link>
+  ) : card;
 }

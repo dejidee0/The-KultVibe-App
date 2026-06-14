@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
+import { getShuffledVideos } from '@/lib/videoPool';
 import { HugeiconsIcon } from '@hugeicons/react';
 import {
   EyeIcon,
@@ -69,8 +70,13 @@ export default function FeaturedStream() {
   const [isMuted, setIsMuted] = useState(true);
   const [showChat, setShowChat] = useState(true);
   const [showCard, setShowCard] = useState(false);
+  const [videoSrc, setVideoSrc] = useState('/videos/featured-stream.mp4');
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setVideoSrc(getShuffledVideos()[0]);
+  }, []);
 
   const toggleFullscreen = useCallback(() => {
     const el = containerRef.current;
@@ -100,7 +106,7 @@ export default function FeaturedStream() {
         <div className="group relative w-full h-full flex flex-col justify-end overflow-hidden">
           <video
             ref={videoRef}
-            src="/videos/featured-stream.mp4"
+            src={videoSrc}
             autoPlay
             loop
             muted={isMuted}

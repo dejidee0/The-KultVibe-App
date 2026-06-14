@@ -5,7 +5,7 @@ import {
   Award01Icon,
   StarIcon,
   UserGroupIcon,
-  BellIcon,
+
   GameController02Icon,
   CodeIcon,
   MusicNote01Icon,
@@ -13,7 +13,7 @@ import {
   LiveStreaming01Icon,
 } from '@hugeicons/core-free-icons';
 
-export type NavItem = { icon: IconSvgElement; label: string };
+export type NavItem = { icon: IconSvgElement; label: string; href: string };
 
 export type Channel = {
   name: string;
@@ -28,12 +28,12 @@ export type Channel = {
 export type Category = { id: string; name: string; icon: IconSvgElement };
 
 export const topNavItems: NavItem[] = [
-  { icon: Home01Icon, label: 'Home' },
-  { icon: Compass01Icon, label: 'Discover' },
-  { icon: Award01Icon, label: 'Compete' },
-  { icon: BellIcon, label: 'Streams' },
-  { icon: StarIcon, label: 'Creators' },
-  { icon: UserGroupIcon, label: 'Community' },
+  { icon: Home01Icon,      label: 'Home',      href: '/' },
+  { icon: Compass01Icon,   label: 'Discover',  href: '/discover' },
+  { icon: Award01Icon,     label: 'Compete',   href: '/compete' },
+  { icon: LiveStreaming01Icon, label: 'Streams', href: '/streams' },
+  { icon: StarIcon,        label: 'Creators',  href: '/creators' },
+  { icon: UserGroupIcon,   label: 'Community', href: '/community' },
 ];
 
 export const liveChannels: Channel[] = [
