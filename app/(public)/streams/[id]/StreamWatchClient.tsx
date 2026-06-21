@@ -71,7 +71,7 @@ export default function StreamWatchClient({ stream }: { stream: StreamData }) {
     <div className="flex h-full overflow-hidden">
 
       {/* ---- Main column ---- */}
-      <div className={`flex flex-col flex-1 overflow-hidden ${!theatreMode ? 'overflow-y-auto' : ''}`}>
+      <div className={`flex flex-col flex-1 overflow-hidden no-scrollbar ${!theatreMode ? 'overflow-y-auto' : ''}`}>
 
         {/* Video area */}
         <div
