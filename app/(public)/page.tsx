@@ -18,12 +18,12 @@ export default function Homepage() {
       <FeaturedStream />
 
       <section className="flex flex-col gap-3">
-        <SectionHeader badge="LIVE" title="More streams" cta="View all" />
+        <SectionHeader badge="LIVE" title="More streams" cta="View all" ctaHref="/streams" />
         <StreamGrid />
       </section>
 
       <section className="flex flex-col gap-3">
-        <SectionHeader icon={Award01Icon} title="Open tournaments" cta="All tournaments" />
+        <SectionHeader icon={Award01Icon} title="Open tournaments" cta="All tournaments" ctaHref="/compete" />
         <TournamentList />
       </section>
 

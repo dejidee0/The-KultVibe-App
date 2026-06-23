@@ -46,7 +46,7 @@ export default function CreatorsGrid() {
   return (
     <section>
       <div className="mb-4">
-        <SectionHeader icon={StarIcon} title="Featured creators" cta="All creators" />
+        <SectionHeader icon={StarIcon} title="Featured creators" cta="All creators" ctaHref="/creators" />
       </div>
 
       <div className="grid grid-cols-4 gap-3">

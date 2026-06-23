@@ -31,9 +31,15 @@ export default function TournamentDetailClient({ tournament }: { tournament: Tou
   const filled = tournament.totalSpots - tournament.spotsLeft
   const pct = (filled / tournament.totalSpots) * 100
 
-  const related = tournamentsData
-    .filter(t => t.vertical === tournament.vertical && t.id !== tournament.id)
-    .slice(0, 4)
+  const related = (() => {
+    const seen = new Set<string>([tournament.id])
+    const pick = (t: TournamentData) => !seen.has(t.id) && (seen.add(t.id), true)
+    const byVerticalOrGame = tournamentsData.filter(
+      t => (t.vertical === tournament.vertical || t.game === tournament.game) && pick(t)
+    )
+    const filler = tournamentsData.filter(t => pick(t))
+    return [...byVerticalOrGame, ...filler].slice(0, 4)
+  })()
 
   const displayCount = Math.min(filled, 24)
   const extraCount   = filled > 24 ? filled - 24 : 0
@@ -66,12 +72,6 @@ export default function TournamentDetailClient({ tournament }: { tournament: Tou
             style={{ background: 'rgba(0,0,0,0.60)', border: '1px solid rgba(255,255,255,0.10)' }}
           >
             {tournament.game}
-          </span>
-          <span
-            className="text-xs text-emerald-400 px-3 py-1.5 rounded-md"
-            style={{ background: 'rgba(16,185,129,0.20)', border: '1px solid rgba(16,185,129,0.40)' }}
-          >
-            {tournament.vertical}
           </span>
         </div>
 

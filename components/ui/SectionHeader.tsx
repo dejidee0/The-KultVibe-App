@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { HugeiconsIcon } from '@hugeicons/react';
 import type { IconSvgElement } from '@hugeicons/react';
 import { ArrowRight01Icon } from '@hugeicons/core-free-icons';
@@ -8,6 +9,7 @@ type Props = {
   iconColor?: string;
   badge?: string;
   cta?: string;
+  ctaHref?: string;
   onCtaClick?: () => void;
 };
 
@@ -17,8 +19,16 @@ export default function SectionHeader({
   iconColor = '#10B981',
   badge,
   cta = 'View all',
+  ctaHref,
   onCtaClick,
 }: Props) {
+  const ctaContent = (
+    <>
+      {cta}
+      <HugeiconsIcon icon={ArrowRight01Icon} size={14} color="currentColor" strokeWidth={1.5} />
+    </>
+  );
+
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-2">
@@ -34,14 +44,23 @@ export default function SectionHeader({
         <h2 className="text-[15px] font-semibold text-white">{title}</h2>
       </div>
       {cta && (
-        <button
-          onClick={onCtaClick}
-          className="flex items-center gap-1 text-xs font-medium transition-colors hover:text-white"
-          style={{ color: 'rgba(255,255,255,0.45)' }}
-        >
-          {cta}
-          <HugeiconsIcon icon={ArrowRight01Icon} size={14} color="currentColor" strokeWidth={1.5} />
-        </button>
+        ctaHref ? (
+          <Link
+            href={ctaHref}
+            className="flex items-center gap-1 text-xs font-medium transition-colors hover:text-white"
+            style={{ color: 'rgba(255,255,255,0.45)' }}
+          >
+            {ctaContent}
+          </Link>
+        ) : (
+          <button
+            onClick={onCtaClick}
+            className="flex items-center gap-1 text-xs font-medium transition-colors hover:text-white"
+            style={{ color: 'rgba(255,255,255,0.45)' }}
+          >
+            {ctaContent}
+          </button>
+        )
       )}
     </div>
   );

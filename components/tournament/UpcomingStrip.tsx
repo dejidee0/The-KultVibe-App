@@ -135,7 +135,7 @@ export default function UpcomingStrip() {
   return (
     <div>
       <div className="mb-4">
-        <SectionHeader icon={Calendar01Icon} title="Upcoming tournaments" cta="View all" />
+        <SectionHeader icon={Calendar01Icon} title="Upcoming tournaments" cta="View all" ctaHref="/compete" />
       </div>
 
       {/* Scroll row */}

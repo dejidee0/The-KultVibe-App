@@ -3,17 +3,15 @@
 import React, { useState } from 'react';
 import { Money01Icon } from '@hugeicons/core-free-icons';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { leaderboardData } from '@/lib/leaderboardData';
 
-const PLAYERS = [
-  { rank: 1, name: '@GhostAlpha',    city: 'Lagos',         game: 'COD Mobile',  earnings: '₦45,000' },
-  { rank: 2, name: '@ZuluSquad',     city: 'Abuja',         game: 'PUBG Mobile', earnings: '₦38,500' },
-  { rank: 3, name: '@Kelechi_FC',    city: 'Port Harcourt', game: 'EA FC',       earnings: '₦29,000' },
-  { rank: 4, name: '@AmaGamer',      city: 'Kano',          game: 'Free Fire',   earnings: '₦21,500' },
-  { rank: 5, name: '@Shadow_NG',     city: 'Lagos',         game: 'COD Mobile',  earnings: '₦18,000' },
-  { rank: 6, name: '@DrumKingKano',  city: 'Kano',          game: 'Music',       earnings: '₦15,750' },
-  { rank: 7, name: '@AfroBeatz',     city: 'Lagos',         game: 'Music',       earnings: '₦14,200' },
-  { rank: 8, name: '@ProCoderLagos', city: 'Lagos',         game: 'Tech',        earnings: '₦12,000' },
-];
+const PLAYERS = leaderboardData.slice(0, 8).map(p => ({
+  rank:     p.rank,
+  name:     p.name,
+  city:     p.city,
+  game:     p.game,
+  earnings: `₦${p.earnings.week.toLocaleString()}`,
+}));
 
 function rankStyle(rank: number) {
   if (rank === 1) return { bg: '#F0B429', text: 'text-black' };
@@ -64,7 +62,7 @@ export default function LeaderboardStrip() {
   return (
     <div>
       <div className="mb-4">
-        <SectionHeader icon={Money01Icon} title="Top earners this week" cta="Full leaderboard" />
+        <SectionHeader icon={Money01Icon} title="Top earners this week" cta="Full leaderboard" ctaHref="/leaderboards" />
       </div>
 
       {/* Marquee container */}
