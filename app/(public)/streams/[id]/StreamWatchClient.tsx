@@ -38,7 +38,7 @@ function useTimer() {
 
 function CheckIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#10B981" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#3B82F6" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="7" cy="7" r="6" />
       <path d="M4.5 7l2 2 3-3" />
     </svg>
@@ -146,7 +146,7 @@ export default function StreamWatchClient({ stream }: { stream: StreamData }) {
             </button>
             <button
               onClick={() => setTheatreMode(t => !t)}
-              className={`p-2 rounded-lg transition-colors ${theatreMode ? 'text-emerald-400 bg-emerald-500/10' : 'text-white/60 hover:text-white hover:bg-white/10'}`}
+              className={`p-2 rounded-lg transition-colors ${theatreMode ? 'text-blue-400 bg-blue-500/10' : 'text-white/60 hover:text-white hover:bg-white/10'}`}
             >
               <HugeiconsIcon icon={SidebarRightIcon} size={16} color="currentColor" strokeWidth={1.5} />
             </button>
@@ -196,8 +196,8 @@ export default function StreamWatchClient({ stream }: { stream: StreamData }) {
                   <p className="text-xs text-white/40">{stream.followers} followers</p>
                 </div>
                 <span
-                  className="text-xs text-emerald-400 rounded-md ml-1 px-2 py-1"
-                  style={{ background: 'rgba(16,185,129,0.15)', border: '1px solid rgba(16,185,129,0.30)' }}
+                  className="text-xs text-blue-400 rounded-md ml-1 px-2 py-1"
+                  style={{ background: 'rgba(59,130,246,0.15)', border: '1px solid rgba(59,130,246,0.30)' }}
                 >
                   {stream.game}
                 </span>
@@ -209,7 +209,12 @@ export default function StreamWatchClient({ stream }: { stream: StreamData }) {
                 >
                   Follow
                 </button>
-                <button className="text-xs bg-[#10B981] text-white font-medium px-4 py-1.5 rounded-md hover:bg-emerald-400 transition-colors">
+                <button
+                  className="text-xs text-white font-medium px-4 py-1.5 rounded-md transition-colors"
+                  style={{ background: '#F97316' }}
+                  onMouseEnter={e => (e.currentTarget.style.background = '#FB923C')}
+                  onMouseLeave={e => (e.currentTarget.style.background = '#F97316')}
+                >
                   Subscribe
                 </button>
               </div>
@@ -236,7 +241,7 @@ export default function StreamWatchClient({ stream }: { stream: StreamData }) {
                   <a
                     key={social.platform}
                     href={social.url}
-                    className="flex items-center gap-1.5 text-xs text-white/50 hover:text-emerald-400 transition-colors rounded-md px-3 py-1.5"
+                    className="flex items-center gap-1.5 text-xs text-white/50 hover:text-blue-400 transition-colors rounded-md px-3 py-1.5"
                     style={{ border: '1px solid rgba(255,255,255,0.09)' }}
                   >
                     <SocialIcon platform={social.platform} />
@@ -264,7 +269,7 @@ export default function StreamWatchClient({ stream }: { stream: StreamData }) {
                   style={{ background: 'rgba(255,255,255,0.08)' }}
                 >
                   <div
-                    className="h-full rounded-full bg-[#10B981] transition-all duration-700"
+                    className="h-full rounded-full bg-[#F97316] transition-all duration-700"
                     style={{ width: `${goalPct}%` }}
                   />
                 </div>

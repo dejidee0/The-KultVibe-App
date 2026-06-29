@@ -49,7 +49,7 @@ export default function AuthModal() {
 
               {/* Logo */}
               <div className="flex items-center justify-center gap-2 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-[#10B981] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-[#3B82F6] flex items-center justify-center">
                   <HugeiconsIcon icon={GameController02Icon} size={16} color="white" strokeWidth={1.5} />
                 </div>
                 <span className="text-base font-medium text-white">KultVibe</span>
@@ -97,12 +97,12 @@ export default function AuthModal() {
               {modalView === 'register' ? (
                 <div className="flex flex-col gap-3 mb-5">
                   <div className="grid grid-cols-2 gap-3">
-                    <input type="text" placeholder="Username" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-emerald-500/50 transition-colors" />
-                    <input type="text" placeholder="Gamer tag (optional)" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-emerald-500/50 transition-colors" />
+                    <input type="text" placeholder="Username" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-blue-500/50 transition-colors" />
+                    <input type="text" placeholder="Gamer tag (optional)" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-blue-500/50 transition-colors" />
                   </div>
-                  <input type="email" placeholder="Email address" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-emerald-500/50 transition-colors" />
-                  <input type="password" placeholder="Password" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-emerald-500/50 transition-colors" />
-                  <select className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white/60 outline-none focus:border-emerald-500/50 transition-colors">
+                  <input type="email" placeholder="Email address" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-blue-500/50 transition-colors" />
+                  <input type="password" placeholder="Password" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-blue-500/50 transition-colors" />
+                  <select className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white/60 outline-none focus:border-blue-500/50 transition-colors">
                     <option value="" disabled>Primary game / vertical</option>
                     <option>COD Mobile</option>
                     <option>PUBG Mobile</option>
@@ -116,16 +116,21 @@ export default function AuthModal() {
                 </div>
               ) : (
                 <div className="flex flex-col gap-3 mb-5">
-                  <input type="email" placeholder="Email address" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-emerald-500/50 transition-colors" />
-                  <input type="password" placeholder="Password" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-emerald-500/50 transition-colors" />
+                  <input type="email" placeholder="Email address" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-blue-500/50 transition-colors" />
+                  <input type="password" placeholder="Password" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-blue-500/50 transition-colors" />
                   <div className="flex justify-end">
-                    <span className="text-xs text-emerald-400 cursor-pointer hover:text-emerald-300 transition-colors">Forgot password?</span>
+                    <span className="text-xs text-blue-400 cursor-pointer hover:text-blue-300 transition-colors">Forgot password?</span>
                   </div>
                 </div>
               )}
 
               {/* Submit */}
-              <button className="w-full bg-[#10B981] text-white font-medium py-3 rounded-lg text-sm hover:bg-emerald-400 transition-colors mb-4">
+              <button
+                className="w-full text-white font-medium py-3 rounded-lg text-sm transition-colors mb-4"
+                style={{ background: '#F97316' }}
+                onMouseEnter={e => (e.currentTarget.style.background = '#FB923C')}
+                onMouseLeave={e => (e.currentTarget.style.background = '#F97316')}
+              >
                 {modalView === 'register' ? 'Create account' : 'Sign in'}
               </button>
 
@@ -133,7 +138,7 @@ export default function AuthModal() {
               <p className="text-xs text-white/35 text-center">
                 {modalView === 'register' ? 'Already have an account?' : "Don't have an account?"}
                 {' '}
-                <span onClick={toggleView} className="text-emerald-400 cursor-pointer hover:text-emerald-300 transition-colors">
+                <span onClick={toggleView} className="text-blue-400 cursor-pointer hover:text-blue-300 transition-colors">
                   {modalView === 'register' ? 'Sign in' : 'Create account'}
                 </span>
               </p>

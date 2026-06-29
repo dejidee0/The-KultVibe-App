@@ -32,19 +32,19 @@ export default function StatsBar() {
   const stats = [
     {
       icon: UserGroupIcon,
-      iconColor: '#10B981',
+      iconColor: '#3B82F6',
       value: players.toLocaleString(),
       label: 'Players registered',
     },
     {
       icon: Money01Icon,
-      iconColor: '#10B981',
+      iconColor: '#3B82F6',
       value: `₦${(payouts / 1000000).toFixed(1)}M`,
       label: 'Total payouts',
     },
     {
       icon: LiveStreaming01Icon,
-      iconColor: '#10B981',
+      iconColor: '#3B82F6',
       value: `${(liveMinutes / 1000000).toFixed(1)}M+`,
       label: 'Live minutes streamed',
     },

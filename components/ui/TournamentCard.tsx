@@ -59,15 +59,15 @@ export default function TournamentCard({
         </div>
         <div className="h-1 bg-white/8 rounded-full mb-3">
           <div
-            className="h-full rounded-full bg-[#10B981] transition-all"
+            className="h-full rounded-full bg-[#F97316] transition-all"
             style={{ width: `${pct}%` }}
           />
         </div>
         <button
           className="w-full flex items-center justify-center gap-1.5 text-xs font-semibold py-2 rounded-lg transition-colors"
-          style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981' }}
-          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(16,185,129,0.25)')}
-          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(16,185,129,0.15)')}
+          style={{ background: 'rgba(249,115,22,0.15)', color: '#F97316' }}
+          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(249,115,22,0.25)')}
+          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(249,115,22,0.15)')}
         >
           Jump in
         </button>

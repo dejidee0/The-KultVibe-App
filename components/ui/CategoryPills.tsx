@@ -17,9 +17,9 @@ export default function CategoryPills() {
             onClick={() => setActive(pill)}
             className="text-xs font-medium rounded-full border px-3 py-1 transition-all whitespace-nowrap"
             style={{
-              background: isActive ? 'rgba(16,185,129,0.20)' : 'rgba(255,255,255,0.04)',
-              borderColor: isActive ? 'rgba(16,185,129,0.50)' : 'rgba(255,255,255,0.10)',
-              color: isActive ? '#6ee7b7' : 'rgba(255,255,255,0.50)',
+              background: isActive ? 'rgba(59,130,246,0.15)' : 'rgba(255,255,255,0.04)',
+              borderColor: isActive ? 'rgba(59,130,246,0.40)' : 'rgba(255,255,255,0.10)',
+              color: isActive ? '#93c5fd' : 'rgba(255,255,255,0.50)',
             }}
           >
             {pill}

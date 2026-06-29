@@ -121,7 +121,10 @@ export default function TournamentDetailClient({ tournament }: { tournament: Tou
         </div>
         <button
           onClick={() => openModal('register')}
-          className="bg-[#10B981] text-white font-medium px-8 py-3 rounded-lg text-sm hover:bg-emerald-400 transition-colors flex-shrink-0 ml-8"
+          className="text-white font-medium px-8 py-3 rounded-lg text-sm transition-colors flex-shrink-0 ml-8"
+          style={{ background: '#F97316' }}
+          onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#FB923C' }}
+          onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = '#F97316' }}
         >
           Register now
         </button>
@@ -138,7 +141,7 @@ export default function TournamentDetailClient({ tournament }: { tournament: Tou
               onClick={() => setActiveTab(key)}
               className="px-4 py-3 text-sm font-medium transition-colors"
               style={{
-                borderBottom: isActive ? '2px solid #10B981' : '2px solid transparent',
+                borderBottom: isActive ? '2px solid #3B82F6' : '2px solid transparent',
                 color: isActive ? '#fff' : 'rgba(255,255,255,0.40)',
                 marginBottom: -1,
               }}
@@ -165,7 +168,7 @@ export default function TournamentDetailClient({ tournament }: { tournament: Tou
                 {tournament.rules.map((rule, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-sm" style={{ color: 'rgba(255,255,255,0.60)' }}>
                     <span className="flex-shrink-0 mt-0.5">
-                      <HugeiconsIcon icon={CheckmarkCircle01Icon} size={15} color="#10B981" strokeWidth={1.5} />
+                      <HugeiconsIcon icon={CheckmarkCircle01Icon} size={15} color="#3B82F6" strokeWidth={1.5} />
                     </span>
                     {rule}
                   </li>
@@ -184,11 +187,14 @@ export default function TournamentDetailClient({ tournament }: { tournament: Tou
               <span className="text-xs" style={{ color: 'rgba(255,255,255,0.40)' }}>{tournament.totalSpots} total</span>
             </div>
             <div className="h-1.5 rounded-full mb-4" style={{ background: 'rgba(255,255,255,0.08)' }}>
-              <div className="h-full bg-[#10B981] rounded-full transition-all" style={{ width: `${pct}%` }} />
+              <div className="h-full bg-[#F97316] rounded-full transition-all" style={{ width: `${pct}%` }} />
             </div>
             <button
               onClick={() => openModal('register')}
-              className="w-full bg-[#10B981] text-white text-sm font-medium py-2.5 rounded-lg hover:bg-emerald-400 transition-colors"
+              className="w-full text-white text-sm font-medium py-2.5 rounded-lg transition-colors"
+              style={{ background: '#F97316' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = '#FB923C' }}
+              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = '#F97316' }}
             >
               Register now
             </button>

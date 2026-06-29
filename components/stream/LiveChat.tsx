@@ -147,7 +147,7 @@ export default function LiveChat() {
           />
           <button
             onClick={openPicker}
-            className="text-emerald-400 hover:text-emerald-300 transition-colors flex-shrink-0"
+            className="text-blue-400 hover:text-blue-300 transition-colors flex-shrink-0"
           >
             <HugeiconsIcon icon={GiftIcon} size={16} color="currentColor" strokeWidth={1.5} />
           </button>

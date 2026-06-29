@@ -69,7 +69,7 @@ export default function ChannelPanel() {
                 onClick={() => setActiveCategory((prev) => (prev === cat.name ? null : cat.name))}
                 className={`flex items-center gap-[10px] cursor-pointer transition-colors hover:bg-white/5 ${
                   isActive
-                    ? 'text-white bg-emerald-500/10 rounded-md pl-3'
+                    ? 'text-white bg-blue-500/10 rounded-md pl-3'
                     : 'text-white/50 rounded-md pl-3'
                 }`}
                 style={{ paddingTop: 6, paddingBottom: 6, paddingRight: 12 }}

@@ -23,7 +23,7 @@ export default function IconBar() {
       <Link href="/">
         <div
           className="flex items-center justify-center rounded-lg flex-shrink-0"
-          style={{ width: 40, height: 40, background: '#10B981' }}
+          style={{ width: 40, height: 40, background: '#3B82F6' }}
         >
           <HugeiconsIcon icon={GamepadIcon} size={20} color="#fff" strokeWidth={1.5} />
         </div>
@@ -43,8 +43,8 @@ export default function IconBar() {
                   style={{
                     width: 40,
                     height: 40,
-                    color: isActive ? '#10B981' : 'rgba(255,255,255,0.4)',
-                    background: isActive ? 'rgba(16,185,129,0.12)' : 'transparent',
+                    color: isActive ? '#3B82F6' : 'rgba(255,255,255,0.4)',
+                    background: isActive ? 'rgba(59,130,246,0.12)' : 'transparent',
                   }}
                   onMouseEnter={(e) => {
                     if (isActive) return;
@@ -110,7 +110,7 @@ export default function IconBar() {
           </div>
         </div>
         <img
-          src="https://api.dicebear.com/7.x/adventurer/svg?seed=kultvibe-user&backgroundColor=10B981"
+          src="https://api.dicebear.com/7.x/adventurer/svg?seed=kultvibe-user&backgroundColor=3B82F6"
           alt="Your avatar"
           className="rounded-full"
           style={{ width: 32, height: 32 }}

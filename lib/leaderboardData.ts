@@ -35,7 +35,7 @@ export const tierColors: Record<string, { bg: string; text: string; border: stri
   Bronze:   { bg: 'rgba(205,127,50,0.15)',  text: '#CD7F32', border: 'rgba(205,127,50,0.3)'  },
   Silver:   { bg: 'rgba(192,192,192,0.15)', text: '#C0C0C0', border: 'rgba(192,192,192,0.3)' },
   Gold:     { bg: 'rgba(240,180,41,0.15)',  text: '#F0B429', border: 'rgba(240,180,41,0.3)'  },
-  Platinum: { bg: 'rgba(16,185,129,0.15)',  text: '#10B981', border: 'rgba(16,185,129,0.3)'  },
+  Platinum: { bg: 'rgba(6,182,212,0.15)',   text: '#06B6D4', border: 'rgba(6,182,212,0.3)'   },
   Diamond:  { bg: 'rgba(96,165,250,0.15)',  text: '#60A5FA', border: 'rgba(96,165,250,0.3)'  },
   Obsidian: { bg: 'rgba(167,139,250,0.15)', text: '#A78BFA', border: 'rgba(167,139,250,0.3)' },
 }

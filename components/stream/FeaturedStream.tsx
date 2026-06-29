@@ -37,13 +37,13 @@ function StreamerHoverCard({ visible }: { visible: boolean }) {
           src="https://api.dicebear.com/7.x/bottts/svg?seed=GhostAlpha&backgroundColor=0D0D14"
           width={40}
           height={40}
-          className="rounded-full border-2 border-emerald-500/40 flex-shrink-0"
+          className="rounded-full border-2 border-blue-500/40 flex-shrink-0"
           alt="GhostAlpha"
         />
         <div>
           <div className="flex items-center gap-1">
             <span className="text-sm font-bold text-white">GhostAlpha</span>
-            <span className="text-emerald-400 text-xs">✓</span>
+            <span className="text-blue-400 text-xs">✓</span>
           </div>
           <span className="text-xs text-white/40">@GhostAlpha · 24.5K followers</span>
         </div>
@@ -57,7 +57,12 @@ function StreamerHoverCard({ visible }: { visible: boolean }) {
         <button className="flex-1 text-xs border border-white/20 text-white/80 font-semibold py-1.5 rounded-lg hover:bg-white/10 transition-colors">
           Follow
         </button>
-        <button className="flex-1 text-xs bg-[#10B981] text-white font-semibold py-1.5 rounded-lg hover:bg-emerald-400 transition-colors flex items-center justify-center gap-1.5">
+        <button
+          className="flex-1 text-xs text-white font-semibold py-1.5 rounded-lg transition-colors flex items-center justify-center gap-1.5"
+          style={{ background: '#F97316' }}
+          onMouseEnter={e => (e.currentTarget.style.background = '#FB923C')}
+          onMouseLeave={e => (e.currentTarget.style.background = '#F97316')}
+        >
           <HugeiconsIcon icon={GiftIcon} size={13} color="currentColor" strokeWidth={1.5} />
           Subscribe
         </button>
@@ -190,7 +195,7 @@ export default function FeaturedStream() {
             </button>
             <button
               onClick={() => setShowChat((v) => !v)}
-              className={`p-2 rounded-lg transition-colors ${showChat ? 'text-emerald-400 bg-emerald-500/10' : 'text-white/60 hover:text-white hover:bg-white/10'}`}
+              className={`p-2 rounded-lg transition-colors ${showChat ? 'text-blue-400 bg-blue-500/10' : 'text-white/60 hover:text-white hover:bg-white/10'}`}
             >
               <HugeiconsIcon icon={SidebarRightIcon} size={16} color="currentColor" strokeWidth={1.5} />
             </button>
