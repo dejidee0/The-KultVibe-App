@@ -62,13 +62,8 @@ export default function LeaderboardsPage() {
   return (
     <div className="p-6 flex flex-col gap-8">
 
-      {/* Header + filters */}
+      {/* Filters */}
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-xl font-medium text-white mb-1">Leaderboards</h1>
-          <p className="text-sm" style={{ color: 'rgba(255,255,255,0.40)' }}>Top earning players across all verticals</p>
-        </div>
-        <div className="flex items-center gap-2">
           <div
             className="flex items-center rounded-lg p-1"
             style={{ background: '#111118', border: '1px solid rgba(255,255,255,0.07)' }}
@@ -89,27 +84,28 @@ export default function LeaderboardsPage() {
               </button>
             ))}
           </div>
-          <select
-            value={vertical}
-            onChange={e => setVertical(e.target.value)}
-            className="rounded-lg px-3 py-2 text-xs cursor-pointer"
-            style={SELECT_STYLE}
-          >
-            {VERTICAL_OPTIONS.map(o => (
-              <option key={o.value} value={o.value} style={{ background: '#0D0D14' }}>{o.label}</option>
-            ))}
-          </select>
-          <select
-            value={city}
-            onChange={e => setCity(e.target.value)}
-            className="rounded-lg px-3 py-2 text-xs cursor-pointer"
-            style={SELECT_STYLE}
-          >
-            {CITY_OPTIONS.map(o => (
-              <option key={o.value} value={o.value} style={{ background: '#0D0D14' }}>{o.label}</option>
-            ))}
-          </select>
-        </div>
+          <div className="flex items-center gap-2">
+            <select
+              value={vertical}
+              onChange={e => setVertical(e.target.value)}
+              className="rounded-lg px-3 py-2 text-xs cursor-pointer"
+              style={SELECT_STYLE}
+            >
+              {VERTICAL_OPTIONS.map(o => (
+                <option key={o.value} value={o.value} style={{ background: '#0D0D14' }}>{o.label}</option>
+              ))}
+            </select>
+            <select
+              value={city}
+              onChange={e => setCity(e.target.value)}
+              className="rounded-lg px-3 py-2 text-xs cursor-pointer"
+              style={SELECT_STYLE}
+            >
+              {CITY_OPTIONS.map(o => (
+                <option key={o.value} value={o.value} style={{ background: '#0D0D14' }}>{o.label}</option>
+              ))}
+            </select>
+          </div>
       </div>
 
       {/* Podium */}
@@ -125,8 +121,6 @@ export default function LeaderboardsPage() {
                 className="flex flex-col items-center"
                 style={{ order: isFirst ? 2 : index === 1 ? 1 : 3 }}
               >
-                {isFirst && <span className="text-2xl mb-1">👑</span>}
-
                 <div className={`relative mb-3 ${isFirst ? 'mt-0' : 'mt-8'}`}>
                   <img
                     src={`https://api.dicebear.com/7.x/bottts/svg?seed=${player.name}&backgroundColor=0D0D14`}
