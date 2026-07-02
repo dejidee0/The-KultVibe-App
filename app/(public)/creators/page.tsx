@@ -43,11 +43,11 @@ function CreatorCardSkeleton() {
 
 function FeaturedCreatorCard({ creator }: { creator: CreatorData }) {
   return (
-    <Link href={`/creators/${creator.id}`} className="block">
+    <Link href={`/streams/${creator.id}`} className="block">
       <div
         className="rounded-xl cursor-pointer transition-all group"
         style={{ background: '#111118', border: '1px solid rgba(255,255,255,0.07)' }}
-        onMouseEnter={e => ((e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(59,130,246,0.30)')}
+        onMouseEnter={e => ((e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(240,180,41,0.30)')}
         onMouseLeave={e => ((e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.07)')}
       >
         <div className="relative">
@@ -67,7 +67,7 @@ function FeaturedCreatorCard({ creator }: { creator: CreatorData }) {
               alt={creator.name}
             />
             {creator.verified && (
-              <HugeiconsIcon icon={CheckmarkCircle01Icon} size={16} color="#3B82F6" strokeWidth={1.5} />
+              <HugeiconsIcon icon={CheckmarkCircle01Icon} size={16} color="#F0B429" strokeWidth={1.5} />
             )}
           </div>
         </div>
@@ -98,8 +98,8 @@ function FeaturedCreatorCard({ creator }: { creator: CreatorData }) {
             className="w-full text-xs py-1.5 rounded-md transition-colors"
             style={{ border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.50)' }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(249,115,22,0.40)'
-              ;(e.currentTarget as HTMLButtonElement).style.color = '#F97316'
+              (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(240,180,41,0.40)'
+              ;(e.currentTarget as HTMLButtonElement).style.color = '#F0B429'
             }}
             onMouseLeave={e => {
               (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.15)'
@@ -116,11 +116,11 @@ function FeaturedCreatorCard({ creator }: { creator: CreatorData }) {
 
 function CreatorCard({ creator }: { creator: CreatorData }) {
   return (
-    <Link href={`/creators/${creator.id}`} className="block">
+    <Link href={`/streams/${creator.id}`} className="block">
       <div
         className="rounded-xl cursor-pointer transition-all"
         style={{ background: '#111118', border: '1px solid rgba(255,255,255,0.07)' }}
-        onMouseEnter={e => ((e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(59,130,246,0.25)')}
+        onMouseEnter={e => ((e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(240,180,41,0.25)')}
         onMouseLeave={e => ((e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.07)')}
       >
         <div className="relative">
@@ -140,7 +140,7 @@ function CreatorCard({ creator }: { creator: CreatorData }) {
               alt={creator.name}
             />
             {creator.verified && (
-              <HugeiconsIcon icon={CheckmarkCircle01Icon} size={13} color="#3B82F6" strokeWidth={1.5} />
+              <HugeiconsIcon icon={CheckmarkCircle01Icon} size={13} color="#F0B429" strokeWidth={1.5} />
             )}
           </div>
         </div>
@@ -223,9 +223,9 @@ export default function CreatorsPage() {
                 onClick={() => setActiveVertical(v)}
                 className="px-4 py-2 rounded-full text-xs font-medium transition-all"
                 style={{
-                  background: isActive ? 'rgba(59,130,246,0.15)' : 'transparent',
-                  border:     isActive ? '1px solid rgba(59,130,246,0.40)' : '1px solid rgba(255,255,255,0.10)',
-                  color:      isActive ? '#3B82F6' : 'rgba(255,255,255,0.50)',
+                  background: isActive ? 'rgba(240,180,41,0.15)' : 'transparent',
+                  border:     isActive ? '1px solid rgba(240,180,41,0.40)' : '1px solid rgba(255,255,255,0.10)',
+                  color:      isActive ? '#F0B429' : 'rgba(255,255,255,0.50)',
                 }}
                 onMouseEnter={e => { if (!isActive) { (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.20)'; (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.70)' } }}
                 onMouseLeave={e => { if (!isActive) { (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.10)'; (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.50)' } }}
@@ -268,7 +268,7 @@ export default function CreatorsPage() {
       {/* Featured creators */}
       <div>
         <div className="flex items-center gap-2 mb-4">
-          <HugeiconsIcon icon={StarIcon} size={16} color="#F97316" strokeWidth={1.5} />
+          <HugeiconsIcon icon={StarIcon} size={16} color="#F0B429" strokeWidth={1.5} />
           <span className="text-sm font-medium text-white">Featured creators</span>
         </div>
         <div className="grid grid-cols-4 gap-3">
@@ -302,17 +302,17 @@ export default function CreatorsPage() {
         />
         <div
           className="absolute inset-0 rounded-xl"
-          style={{ background: 'linear-gradient(to right, rgba(30,58,138,0.45), rgba(30,58,138,0.15), transparent)', zIndex: 1 }}
+          style={{ background: 'linear-gradient(to right, rgba(120,80,0,0.45), rgba(120,80,0,0.15), transparent)', zIndex: 1 }}
         />
         <div
           className="relative p-8 flex items-center justify-between rounded-xl"
-          style={{ border: '1px solid rgba(59,130,246,0.20)', zIndex: 2 }}
+          style={{ border: '1px solid rgba(240,180,41,0.20)', zIndex: 2 }}
         >
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span
                 className="text-xs px-2 py-1 rounded-md"
-                style={{ color: '#60A5FA', background: 'rgba(59,130,246,0.15)', border: '1px solid rgba(59,130,246,0.30)' }}
+                style={{ color: '#F0B429', background: 'rgba(240,180,41,0.15)', border: '1px solid rgba(240,180,41,0.30)' }}
               >
                 For Brands
               </span>
@@ -342,10 +342,10 @@ export default function CreatorsPage() {
             </div>
             <button
               onClick={() => openModal('register')}
-              className="text-white font-medium px-6 py-3 rounded-lg text-sm transition-colors"
-              style={{ background: '#F97316' }}
-              onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = '#FB923C')}
-              onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = '#F97316')}
+              className="font-medium px-6 py-3 rounded-lg text-sm transition-colors"
+              style={{ background: '#F0B429', color: '#08080D' }}
+              onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = '#D4A017')}
+              onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = '#F0B429')}
             >
               Get started as a brand
             </button>

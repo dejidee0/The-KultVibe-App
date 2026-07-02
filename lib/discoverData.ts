@@ -1,0 +1,207 @@
+export type FeedItemType = 'stream_live' | 'tournament_open' | 'winner' | 'rank_up' | 'gift_highlight' | 'new_creator'
+
+export interface FeedItem {
+  id: string
+  type: FeedItemType
+  timestamp: string
+  actor: string
+  actorSeed: string
+  title: string
+  description: string
+  value?: string
+  game?: string
+  tags?: string[]
+  actionLabel: string
+  actionHref: string
+}
+
+export const feedItems: FeedItem[] = [
+  {
+    id: '1',
+    type: 'stream_live',
+    timestamp: '2 min ago',
+    actor: '@GhostAlpha',
+    actorSeed: 'GhostAlpha',
+    title: '@GhostAlpha just went live',
+    description: 'CODM — Lagos Qualifiers · Season 1',
+    game: 'COD Mobile',
+    tags: ['RANKED', 'NIGERIA'],
+    actionLabel: 'Watch now',
+    actionHref: '/streams/ghostalpha',
+  },
+  {
+    id: '2',
+    type: 'winner',
+    timestamp: '8 min ago',
+    actor: '@ZuluSquad',
+    actorSeed: 'ZuluSquad',
+    title: '@ZuluSquad won the PUBG Naija Royale',
+    description: 'Took home the top prize after 6 rounds of squad combat',
+    value: '₦250,000',
+    game: 'PUBG Mobile',
+    actionLabel: 'View tournament',
+    actionHref: '/compete/pubg-naija-royale',
+  },
+  {
+    id: '3',
+    type: 'tournament_open',
+    timestamp: '15 min ago',
+    actor: 'KultVibe',
+    actorSeed: 'KultVibe',
+    title: 'New tournament just opened',
+    description: 'KultVibe Hackathon Lagos — 50 spots remaining',
+    value: '₦300,000',
+    game: 'Tech & Dev',
+    tags: ['CODING', 'TEAM'],
+    actionLabel: 'Register now',
+    actionHref: '/compete/kultvibe-hackathon-lagos',
+  },
+  {
+    id: '4',
+    type: 'rank_up',
+    timestamp: '22 min ago',
+    actor: '@Shadow_NG',
+    actorSeed: 'Shadow_NG',
+    title: '@Shadow_NG reached Platinum tier',
+    description: 'Climbed from Gold after winning 3 consecutive COD Mobile matches',
+    game: 'COD Mobile',
+    actionLabel: 'View profile',
+    actionHref: '/streams/shadow-ng',
+  },
+  {
+    id: '5',
+    type: 'gift_highlight',
+    timestamp: '31 min ago',
+    actor: '@KanoKing',
+    actorSeed: 'KanoKing',
+    title: '@KanoKing sent a Lion gift',
+    description: 'Gifted to @AfroBeatz during the Beat Battle Lagos stream',
+    value: '₦25,000',
+    game: 'Music',
+    actionLabel: 'Watch stream',
+    actionHref: '/streams/afrobeatz',
+  },
+  {
+    id: '6',
+    type: 'stream_live',
+    timestamp: '35 min ago',
+    actor: '@AfroBeatz',
+    actorSeed: 'AfroBeatz',
+    title: '@AfroBeatz just went live',
+    description: 'Beat Battle Lagos — Round 2 Finals',
+    game: 'Music · Beat Battle',
+    tags: ['MUSIC', 'AFROBEATS'],
+    actionLabel: 'Watch now',
+    actionHref: '/streams/afrobeatz',
+  },
+  {
+    id: '7',
+    type: 'new_creator',
+    timestamp: '1 hr ago',
+    actor: '@VibeLensLagos',
+    actorSeed: 'VibeLensLagos',
+    title: '@VibeLensLagos just joined KultVibe',
+    description: 'Lagos street photographer and culture documentarian. Give them a follow.',
+    game: 'Lifestyle',
+    actionLabel: 'Follow',
+    actionHref: '/streams/vibeslenslags',
+  },
+  {
+    id: '8',
+    type: 'tournament_open',
+    timestamp: '1 hr ago',
+    actor: 'KultVibe',
+    actorSeed: 'KultVibe',
+    title: 'Spots filling fast',
+    description: 'CS2 Africa Qualifiers — only 22 spots left out of 32',
+    value: '₦200,000',
+    game: 'CS2',
+    tags: ['FPS', 'RANKED'],
+    actionLabel: 'Register now',
+    actionHref: '/compete/cs2-africa-qualifiers',
+  },
+  {
+    id: '9',
+    type: 'winner',
+    timestamp: '2 hrs ago',
+    actor: '@ProCoderLagos',
+    actorSeed: 'ProCoderLagos',
+    title: '@ProCoderLagos won Naija CTF Challenge',
+    description: 'First place in the Tech & Dev vertical. Solved all 12 flags.',
+    value: '₦150,000',
+    game: 'Tech & Dev',
+    actionLabel: 'View tournament',
+    actionHref: '/compete/naija-ctf-challenge',
+  },
+  {
+    id: '10',
+    type: 'rank_up',
+    timestamp: '2 hrs ago',
+    actor: '@Kelechi_FC',
+    actorSeed: 'Kelechi_FC',
+    title: '@Kelechi_FC reached Diamond tier',
+    description: 'Now ranked 3rd on the Nigeria leaderboard after 31 tournaments',
+    game: 'EA FC',
+    actionLabel: 'View leaderboard',
+    actionHref: '/leaderboards',
+  },
+  {
+    id: '11',
+    type: 'gift_highlight',
+    timestamp: '3 hrs ago',
+    actor: '@LagosVibes',
+    actorSeed: 'LagosVibes',
+    title: '@LagosVibes sent a Trophy gift',
+    description: 'Gifted to @GhostAlpha during the CODM Lagos Qualifiers',
+    value: '₦10,000',
+    game: 'COD Mobile',
+    actionLabel: 'Watch stream',
+    actionHref: '/streams/ghostalpha',
+  },
+  {
+    id: '12',
+    type: 'stream_live',
+    timestamp: '3 hrs ago',
+    actor: '@KelechiFC',
+    actorSeed: 'KelechiFC',
+    title: '@KelechiFC just went live',
+    description: 'EA FC Street League — 1v1 Ranked',
+    game: 'EA FC',
+    tags: ['FIFA', '1V1'],
+    actionLabel: 'Watch now',
+    actionHref: '/streams/kelechifc',
+  },
+]
+
+export const trendingTournaments = [
+  {
+    name: 'PUBG Naija Royale',
+    game: 'PUBG Mobile',
+    spotsLeft: 20,
+    totalSpots: 100,
+    prize: '₦250,000',
+    href: '/compete/pubg-naija-royale',
+  },
+  {
+    name: 'CS2 Africa Qualifiers',
+    game: 'CS2',
+    spotsLeft: 22,
+    totalSpots: 32,
+    prize: '₦200,000',
+    href: '/compete/cs2-africa-qualifiers',
+  },
+  {
+    name: 'Beat Battle Lagos',
+    game: 'Music',
+    spotsLeft: 19,
+    totalSpots: 64,
+    prize: '₦75,000',
+    href: '/compete/beat-battle-lagos',
+  },
+]
+
+export const trendingCreators = [
+  { name: '@GhostAlpha', game: 'COD Mobile', growth: '+1.2K this week', seed: 'GhostAlpha', href: '/streams/ghostalpha' },
+  { name: '@AfroBeatz', game: 'Music', growth: '+890 this week', seed: 'AfroBeatz', href: '/streams/afrobeatz' },
+  { name: '@ProCoderLagos', game: 'Tech & Dev', growth: '+640 this week', seed: 'ProCoderLagos', href: '/streams/procoderlagos' },
+]

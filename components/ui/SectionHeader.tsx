@@ -16,7 +16,7 @@ type Props = {
 export default function SectionHeader({
   title,
   icon,
-  iconColor = '#3B82F6',
+  iconColor = '#F0B429',
   badge,
   cta = 'View all',
   ctaHref,

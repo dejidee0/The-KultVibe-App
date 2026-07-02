@@ -22,7 +22,7 @@ export default function Topbar() {
         <input
           type="text"
           placeholder="Search streams, tournaments, creators..."
-          className="w-full text-sm rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-white placeholder:text-[rgba(255,255,255,0.3)]"
+          className="w-full text-sm rounded-md focus:outline-none focus:ring-1 focus:ring-yellow-500 text-white placeholder:text-[rgba(255,255,255,0.3)]"
           style={{
             background: 'rgba(255,255,255,0.06)',
             border: '1px solid rgba(255,255,255,0.1)',
@@ -57,13 +57,13 @@ export default function Topbar() {
       {/* CTA button */}
       <button
         onClick={() => openModal('register')}
-        className="text-sm font-semibold text-white rounded-md"
-        style={{ background: '#F97316', padding: '6px 16px' }}
+        className="text-sm font-semibold rounded-md"
+        style={{ background: '#F0B429', color: '#08080D', padding: '6px 16px' }}
         onMouseEnter={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#FB923C';
+          (e.currentTarget as HTMLButtonElement).style.background = '#D4A017';
         }}
         onMouseLeave={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#F97316';
+          (e.currentTarget as HTMLButtonElement).style.background = '#F0B429';
         }}
       >
         Join KultVibe

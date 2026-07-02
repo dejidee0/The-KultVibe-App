@@ -118,9 +118,9 @@ function UpcomingCard({
           <span className="text-[10px] text-white/35">{spots} spots</span>
           <button
             className="flex items-center gap-1 text-[10px] font-semibold text-white px-3 py-1 rounded-md transition-colors"
-            style={{ background: 'rgba(249,115,22,0.15)', color: '#F97316' }}
-            onMouseEnter={e => (e.currentTarget.style.background = 'rgba(249,115,22,0.25)')}
-            onMouseLeave={e => (e.currentTarget.style.background = 'rgba(249,115,22,0.15)')}
+            style={{ background: 'rgba(240,180,41,0.15)', color: '#F0B429' }}
+            onMouseEnter={e => (e.currentTarget.style.background = 'rgba(240,180,41,0.25)')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'rgba(240,180,41,0.15)')}
           >
             <HugeiconsIcon icon={BellRingIcon} size={11} color="currentColor" strokeWidth={1.5} />
             Notify me

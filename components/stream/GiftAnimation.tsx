@@ -30,8 +30,8 @@ type GiftConfig = {
 const GIFT_CONFIGS: Record<string, GiftConfig> = {
   fire:    { color: '#FF6B35', glow: 'rgba(255,107,53,0.7)',  tier: 1, size: 40 },
   crown:   { color: '#F0B429', glow: 'rgba(240,180,41,0.7)',  tier: 2, size: 44 },
-  diamond: { color: '#60A5FA', glow: 'rgba(96,165,250,0.7)',  tier: 3, size: 52 },
-  rocket:  { color: '#F97316', glow: 'rgba(249,115,22,0.7)',  tier: 3, size: 52 },
+  diamond: { color: '#F0B429', glow: 'rgba(240,180,41,0.7)',  tier: 3, size: 52 },
+  rocket:  { color: '#F0B429', glow: 'rgba(240,180,41,0.7)',  tier: 3, size: 52 },
   trophy:  { color: '#FBBF24', glow: 'rgba(251,191,36,0.85)', tier: 4, size: 60 },
   lion:    { color: '#EF4444', glow: 'rgba(239,68,68,0.85)',  tier: 5, size: 68 },
 }

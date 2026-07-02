@@ -100,8 +100,8 @@ export default function GiftPicker() {
                     transition: 'all 0.15s',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(59,130,246,0.4)'
-                    e.currentTarget.style.background = 'rgba(59,130,246,0.08)'
+                    e.currentTarget.style.borderColor = 'rgba(240,180,41,0.4)'
+                    e.currentTarget.style.background = 'rgba(240,180,41,0.08)'
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'

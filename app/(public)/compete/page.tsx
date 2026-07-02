@@ -132,10 +132,10 @@ export default function CompetePage() {
                 onClick={() => handleVerticalChange(v.id)}
                 className="flex items-center gap-2 px-4 py-2 rounded-full text-sm whitespace-nowrap transition-all duration-200"
                 style={{
-                  color:      isActive ? '#3B82F6' : 'rgba(255,255,255,0.48)',
-                  background: isActive ? 'rgba(59,130,246,0.10)' : 'transparent',
-                  border:     isActive ? '1px solid rgba(59,130,246,0.40)' : '1px solid rgba(255,255,255,0.09)',
-                  boxShadow:  isActive ? '0 0 18px rgba(59,130,246,0.11)' : 'none',
+                  color:      isActive ? '#F0B429' : 'rgba(255,255,255,0.48)',
+                  background: isActive ? 'rgba(240,180,41,0.10)' : 'transparent',
+                  border:     isActive ? '1px solid rgba(240,180,41,0.40)' : '1px solid rgba(255,255,255,0.09)',
+                  boxShadow:  isActive ? '0 0 18px rgba(240,180,41,0.11)' : 'none',
                 }}
                 onMouseEnter={e => {
                   if (isActive) return;
@@ -152,8 +152,8 @@ export default function CompetePage() {
                 <span
                   className="text-[10px] rounded-full px-1.5 py-0.5 leading-none"
                   style={{
-                    background: isActive ? 'rgba(59,130,246,0.18)' : 'rgba(255,255,255,0.07)',
-                    color:      isActive ? '#3B82F6' : 'rgba(255,255,255,0.38)',
+                    background: isActive ? 'rgba(240,180,41,0.18)' : 'rgba(255,255,255,0.07)',
+                    color:      isActive ? '#F0B429' : 'rgba(255,255,255,0.38)',
                   }}
                 >
                   {v.count}
@@ -187,7 +187,7 @@ export default function CompetePage() {
                   border: '1px solid rgba(255,255,255,0.09)',
                   paddingRight: search ? 28 : 12,
                 }}
-                onFocus={e => (e.currentTarget.style.borderColor = 'rgba(59,130,246,0.45)')}
+                onFocus={e => (e.currentTarget.style.borderColor = 'rgba(240,180,41,0.45)')}
                 onBlur={e  => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)')}
               />
               {search && (
@@ -247,10 +247,10 @@ export default function CompetePage() {
             <p className="text-xs text-white/40 mb-5">Check back soon or browse other categories</p>
             <button
               onClick={() => handleVerticalChange('all')}
-              className="text-xs font-medium text-orange-400 px-4 py-2 rounded-md transition-colors"
-              style={{ background: 'rgba(249,115,22,0.14)', border: '1px solid rgba(249,115,22,0.28)' }}
-              onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = 'rgba(249,115,22,0.24)')}
-              onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = 'rgba(249,115,22,0.14)')}
+              className="text-xs font-medium text-yellow-400 px-4 py-2 rounded-md transition-colors"
+              style={{ background: 'rgba(240,180,41,0.14)', border: '1px solid rgba(240,180,41,0.28)' }}
+              onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = 'rgba(240,180,41,0.24)')}
+              onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = 'rgba(240,180,41,0.14)')}
             >
               Browse all
             </button>

@@ -10,7 +10,7 @@ const initialMessages = [
   { id: 2, user: '@NaijaGamer', color: '#F472B6', text: 'This stream is too mad', isGift: false },
   { id: 3, user: '@AbujaBoy', color: '#34D399', text: "GG! Let's go Alpha!!", isGift: false },
   { id: 4, user: '@LagosVibes', color: '#F59E0B', text: 'Top 5 already?', isGift: false },
-  { id: 5, user: '@CallOfNaija', color: '#60A5FA', text: 'Drop the settings bro please', isGift: false },
+  { id: 5, user: '@CallOfNaija', color: '#F0B429', text: 'Drop the settings bro please', isGift: false },
   { id: 6, user: '@ZuluFanatic', color: '#F472B6', text: 'First time watching, this is insane', isGift: false },
   { id: 7, user: '@PH_Gamer', color: '#A78BFA', text: "1.2K viewers let's gooo", isGift: false },
   { id: 8, user: '@KanoKing', color: '#34D399', text: 'Clutch incoming, I can feel it', isGift: false },
@@ -18,11 +18,11 @@ const initialMessages = [
 
 const newMessages = [
   { user: '@LagosGamer', color: '#F59E0B', text: 'W player no cap', isGift: false },
-  { user: '@AbujaVibes', color: '#60A5FA', text: 'someone gift a sub pls', isGift: false },
+  { user: '@AbujaVibes', color: '#F0B429', text: 'someone gift a sub pls', isGift: false },
   { user: '@NaijaKing', color: '#A78BFA', text: 'this man is cracked', isGift: false },
   { user: '@DeltaGamer', color: '#34D399', text: 'omo this is too much', isGift: false },
   { user: '@OgaStreamer', color: '#F472B6', text: 'carried by ghost again lol', isGift: false },
-  { user: '@BenedictNG', color: '#60A5FA', text: 'Lagos finest right here', isGift: false },
+  { user: '@BenedictNG', color: '#F0B429', text: 'Lagos finest right here', isGift: false },
   { user: '@ChiGaming', color: '#F59E0B', text: 'how is he doing this???', isGift: false },
   { user: '@RiverState', color: '#A78BFA', text: 'represent PH!', isGift: false },
   { user: '@AbokiGamer', color: '#34D399', text: 'GG GG GG', isGift: false },
@@ -147,7 +147,7 @@ export default function LiveChat() {
           />
           <button
             onClick={openPicker}
-            className="text-blue-400 hover:text-blue-300 transition-colors flex-shrink-0"
+            className="text-yellow-400 hover:text-yellow-300 transition-colors flex-shrink-0"
           >
             <HugeiconsIcon icon={GiftIcon} size={16} color="currentColor" strokeWidth={1.5} />
           </button>

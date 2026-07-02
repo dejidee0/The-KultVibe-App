@@ -74,8 +74,8 @@ export default function LeaderboardsPage() {
                 onClick={() => setTimePeriod(period)}
                 className="px-3 py-1.5 rounded-md text-xs font-medium transition-colors"
                 style={{
-                  background: timePeriod === period ? 'rgba(59,130,246,0.15)' : 'transparent',
-                  color:      timePeriod === period ? '#3B82F6' : 'rgba(255,255,255,0.40)',
+                  background: timePeriod === period ? 'rgba(240,180,41,0.15)' : 'transparent',
+                  color:      timePeriod === period ? '#F0B429' : 'rgba(255,255,255,0.40)',
                 }}
                 onMouseEnter={e => { if (timePeriod !== period) (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.65)' }}
                 onMouseLeave={e => { if (timePeriod !== period) (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.40)' }}
@@ -196,7 +196,7 @@ export default function LeaderboardsPage() {
             >
               <div className="flex items-center gap-1">
                 <span className="text-sm" style={{ color: 'rgba(255,255,255,0.50)' }}>{player.rank}</span>
-                {player.trend === 'up'   && <span className="text-[10px] text-blue-400">▲{player.trendAmount}</span>}
+                {player.trend === 'up'   && <span className="text-[10px] text-yellow-400">▲{player.trendAmount}</span>}
                 {player.trend === 'down' && <span className="text-[10px] text-red-400">▼{player.trendAmount}</span>}
               </div>
 
@@ -249,7 +249,7 @@ export default function LeaderboardsPage() {
       {/* Rising stars */}
       <div>
         <div className="flex items-center gap-2 mb-4">
-          <HugeiconsIcon icon={ChartUpIcon} size={18} color="#3B82F6" strokeWidth={1.5} />
+          <HugeiconsIcon icon={ChartUpIcon} size={18} color="#F0B429" strokeWidth={1.5} />
           <span className="text-sm font-medium text-white">Rising this week</span>
           <span className="text-xs" style={{ color: 'rgba(255,255,255,0.30)' }}>biggest movers</span>
         </div>
@@ -263,7 +263,7 @@ export default function LeaderboardsPage() {
                 border: '1px solid rgba(255,255,255,0.07)',
                 width: 200,
               }}
-              onMouseEnter={e => ((e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(59,130,246,0.30)')}
+              onMouseEnter={e => ((e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(240,180,41,0.30)')}
               onMouseLeave={e => ((e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.07)')}
             >
               <img
@@ -276,7 +276,7 @@ export default function LeaderboardsPage() {
               <div className="flex-1 min-w-0">
                 <p className="text-xs font-medium text-white truncate">{player.name}</p>
                 <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.40)' }}>{player.city}</p>
-                <p className="text-xs font-medium text-blue-400 mt-1">▲ {player.trendAmount} spot{player.trendAmount !== 1 ? 's' : ''}</p>
+                <p className="text-xs font-medium text-yellow-400 mt-1">▲ {player.trendAmount} spot{player.trendAmount !== 1 ? 's' : ''}</p>
               </div>
             </div>
           ))}
@@ -294,10 +294,10 @@ export default function LeaderboardsPage() {
         </div>
         <button
           onClick={() => openModal('register')}
-          className="text-white text-sm font-medium px-6 py-2.5 rounded-lg transition-colors"
-          style={{ background: '#F97316' }}
-          onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = '#FB923C')}
-          onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = '#F97316')}
+          className="text-[#08080D] text-sm font-medium px-6 py-2.5 rounded-lg transition-colors"
+          style={{ background: '#F0B429' }}
+          onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = '#D4A017')}
+          onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = '#F0B429')}
         >
           Start competing
         </button>

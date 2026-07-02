@@ -32,7 +32,7 @@ export default function StreamCard({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-    (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(59,130,246,0.40)';
+    (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(240,180,41,0.40)';
     videoRef.current?.play();
   };
 
@@ -95,7 +95,7 @@ export default function StreamCard({
         </div>
 
         {/* Hover play overlay */}
-        <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors duration-200 flex items-center justify-center z-10">
+        <div className="absolute inset-0 bg-yellow-500/0 group-hover:bg-yellow-500/10 transition-colors duration-200 flex items-center justify-center z-10">
           <div className="opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 rounded-full bg-white/90 flex items-center justify-center">
             <HugeiconsIcon icon={PlayCircleIcon} size={20} color="#0D0D14" strokeWidth={2} />
           </div>

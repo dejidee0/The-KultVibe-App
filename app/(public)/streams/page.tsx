@@ -138,7 +138,7 @@ function HeroStreamCard({ stream }: { stream: HeroStream }) {
 
       <div
         className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-        style={{ boxShadow: 'inset 0 0 0 1.5px rgba(59,130,246,0.50)' }}
+        style={{ boxShadow: 'inset 0 0 0 1.5px rgba(240,180,41,0.50)' }}
       />
     </div>
   );
@@ -295,10 +295,10 @@ export default function StreamsPage() {
               onClick={() => setActiveCategory(cat.label)}
               className="flex items-center gap-2 px-4 py-2 rounded-full text-sm whitespace-nowrap transition-all duration-200"
               style={{
-                color: isActive ? '#3B82F6' : 'rgba(255,255,255,0.48)',
-                background: isActive ? 'rgba(59,130,246,0.10)' : 'transparent',
-                border: isActive ? '1px solid rgba(59,130,246,0.40)' : '1px solid rgba(255,255,255,0.09)',
-                boxShadow: isActive ? '0 0 18px rgba(59,130,246,0.11)' : 'none',
+                color: isActive ? '#F0B429' : 'rgba(255,255,255,0.48)',
+                background: isActive ? 'rgba(240,180,41,0.10)' : 'transparent',
+                border: isActive ? '1px solid rgba(240,180,41,0.40)' : '1px solid rgba(255,255,255,0.09)',
+                boxShadow: isActive ? '0 0 18px rgba(240,180,41,0.11)' : 'none',
               }}
               onMouseEnter={e => {
                 if (isActive) return;
@@ -315,8 +315,8 @@ export default function StreamsPage() {
               <span
                 className="text-[10px] rounded-full px-1.5 py-0.5 leading-none"
                 style={{
-                  background: isActive ? 'rgba(59,130,246,0.18)' : 'rgba(255,255,255,0.07)',
-                  color: isActive ? '#3B82F6' : 'rgba(255,255,255,0.38)',
+                  background: isActive ? 'rgba(240,180,41,0.18)' : 'rgba(255,255,255,0.07)',
+                  color: isActive ? '#F0B429' : 'rgba(255,255,255,0.38)',
                 }}
               >
                 {cat.count}
@@ -352,7 +352,7 @@ export default function StreamsPage() {
                 border: '1px solid rgba(255,255,255,0.09)',
                 paddingRight: tagSearch ? 28 : 12,
               }}
-              onFocus={e => (e.currentTarget.style.borderColor = 'rgba(59,130,246,0.45)')}
+              onFocus={e => (e.currentTarget.style.borderColor = 'rgba(240,180,41,0.45)')}
               onBlur={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)')}
             />
             {tagSearch && (
@@ -402,8 +402,8 @@ export default function StreamsPage() {
               onClick={() => setView('grid')}
               className="p-1.5 rounded-md transition-all duration-150"
               style={{
-                color: view === 'grid' ? '#3B82F6' : 'rgba(255,255,255,0.28)',
-                background: view === 'grid' ? 'rgba(59,130,246,0.14)' : 'transparent',
+                color: view === 'grid' ? '#F0B429' : 'rgba(255,255,255,0.28)',
+                background: view === 'grid' ? 'rgba(240,180,41,0.14)' : 'transparent',
               }}
               title="Grid view"
             >
@@ -418,8 +418,8 @@ export default function StreamsPage() {
               onClick={() => setView('list')}
               className="p-1.5 rounded-md transition-all duration-150"
               style={{
-                color: view === 'list' ? '#3B82F6' : 'rgba(255,255,255,0.28)',
-                background: view === 'list' ? 'rgba(59,130,246,0.14)' : 'transparent',
+                color: view === 'list' ? '#F0B429' : 'rgba(255,255,255,0.28)',
+                background: view === 'list' ? 'rgba(240,180,41,0.14)' : 'transparent',
               }}
               title="List view"
             >
@@ -452,10 +452,10 @@ export default function StreamsPage() {
           </p>
           <button
             onClick={() => { setActiveCategory('All'); setTagSearch(''); }}
-            className="text-xs font-medium text-orange-400 px-4 py-2 rounded-md transition-colors"
-            style={{ background: 'rgba(249,115,22,0.14)', border: '1px solid rgba(249,115,22,0.28)' }}
-            onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = 'rgba(249,115,22,0.24)')}
-            onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = 'rgba(249,115,22,0.14)')}
+            className="text-xs font-medium text-yellow-400 px-4 py-2 rounded-md transition-colors"
+            style={{ background: 'rgba(240,180,41,0.14)', border: '1px solid rgba(240,180,41,0.28)' }}
+            onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = 'rgba(240,180,41,0.24)')}
+            onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = 'rgba(240,180,41,0.14)')}
           >
             {tagSearch ? 'Clear filter' : 'Get notified when live'}
           </button>
@@ -495,7 +495,7 @@ export default function StreamsPage() {
           {isLoadingMore && (
             <div className="flex items-center justify-center py-4">
               <div
-                className="w-4 h-4 rounded-full border-2 border-white/10 border-t-blue-500 animate-spin"
+                className="w-4 h-4 rounded-full border-2 border-white/10 border-t-yellow-500 animate-spin"
               />
             </div>
           )}

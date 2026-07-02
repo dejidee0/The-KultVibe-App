@@ -51,7 +51,7 @@ export default function CreatorCard({
         <div className="flex items-center gap-1.5 mb-1">
           <span className="text-sm font-medium text-white">{name}</span>
           {verified && (
-            <HugeiconsIcon icon={CheckmarkCircle01Icon} size={14} color="#3B82F6" strokeWidth={1.5} />
+            <HugeiconsIcon icon={CheckmarkCircle01Icon} size={14} color="#F0B429" strokeWidth={1.5} />
           )}
         </div>
 
@@ -69,9 +69,9 @@ export default function CreatorCard({
           </div>
           <button
             className="flex items-center gap-1 text-[10px] font-semibold px-3 py-1.5 rounded-md transition-colors"
-            style={{ background: 'rgba(249,115,22,0.15)', color: '#F97316' }}
-            onMouseEnter={e => (e.currentTarget.style.background = 'rgba(249,115,22,0.25)')}
-            onMouseLeave={e => (e.currentTarget.style.background = 'rgba(249,115,22,0.15)')}
+            style={{ background: 'rgba(240,180,41,0.15)', color: '#F0B429' }}
+            onMouseEnter={e => (e.currentTarget.style.background = 'rgba(240,180,41,0.25)')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'rgba(240,180,41,0.15)')}
           >
             <HugeiconsIcon icon={UserAdd01Icon} size={11} color="currentColor" strokeWidth={1.5} />
             Follow
