@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { GamepadIcon, Wallet01Icon } from '@hugeicons/core-free-icons';
+import { Wallet01Icon } from '@hugeicons/core-free-icons';
 import { topNavItems } from './sidebarData';
 
 export default function IconBar() {
@@ -22,10 +22,16 @@ export default function IconBar() {
       {/* Logo */}
       <Link href="/">
         <div
-          className="flex items-center justify-center rounded-lg flex-shrink-0"
-          style={{ width: 40, height: 40, background: '#F0B429' }}
+          className="flex-shrink-0 overflow-hidden"
+          style={{ width: 40, height: 40 }}
         >
-          <HugeiconsIcon icon={GamepadIcon} size={20} color="#fff" strokeWidth={1.5} />
+          <img
+            src="/logo.png"
+            alt="KultVibe"
+            width={40}
+            height={40}
+            style={{ transform: 'scale(2.2)', transformOrigin: 'center', display: 'block' }}
+          />
         </div>
       </Link>
 

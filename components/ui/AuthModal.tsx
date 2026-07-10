@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { Cancel01Icon, GameController02Icon } from '@hugeicons/core-free-icons';
+import { Cancel01Icon } from '@hugeicons/core-free-icons';
 import { useAuthStore } from '@/store/useAuthStore';
 
 export default function AuthModal() {
@@ -49,8 +49,14 @@ export default function AuthModal() {
 
               {/* Logo */}
               <div className="flex items-center justify-center gap-2 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-[#F0B429] flex items-center justify-center">
-                  <HugeiconsIcon icon={GameController02Icon} size={16} color="white" strokeWidth={1.5} />
+                <div className="flex-shrink-0 overflow-hidden" style={{ width: 32, height: 32 }}>
+                  <img
+                    src="/logo.png"
+                    alt="KultVibe"
+                    width={32}
+                    height={32}
+                    style={{ transform: 'scale(2.2)', transformOrigin: 'center', display: 'block' }}
+                  />
                 </div>
                 <span className="text-base font-medium text-white">KultVibe</span>
               </div>
