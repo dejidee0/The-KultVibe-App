@@ -14,7 +14,7 @@ export default function PublicLayout({
         <Sidebar />
         <div className="flex flex-col flex-1 overflow-hidden">
           <Topbar />
-          <main className="flex-1 overflow-y-auto">
+          <main className="flex-1 overflow-y-auto h-full">
             {children}
           </main>
         </div>

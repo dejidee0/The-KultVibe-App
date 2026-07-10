@@ -1,7 +1,14 @@
+import dynamic from 'next/dynamic'
+
+const CommunityClient = dynamic(() => import('./CommunityClient'), {
+  ssr: false,
+  loading: () => <div className="flex-1 bg-kv-base animate-pulse" />,
+})
+
 export default function CommunityPage() {
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold text-kv-text">Community Page</h1>
+    <div className="h-full overflow-hidden">
+      <CommunityClient />
     </div>
-  );
+  )
 }
