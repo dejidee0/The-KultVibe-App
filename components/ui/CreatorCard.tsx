@@ -36,6 +36,7 @@ export default function CreatorCard({
         <div className="absolute left-4" style={{ bottom: -22 }}>
           <img
             src={`https://api.dicebear.com/7.x/bottts/svg?seed=${name}&backgroundColor=0D0D14`}
+            loading="lazy"
             width={44}
             height={44}
             className="rounded-full border-2 border-kv-card"

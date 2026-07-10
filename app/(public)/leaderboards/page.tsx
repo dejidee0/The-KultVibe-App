@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useMemo } from 'react'
+import Link from 'next/link'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { ChartUpIcon } from '@hugeicons/core-free-icons'
 import { leaderboardData, tierColors, type LeaderboardPlayer } from '@/lib/leaderboardData'
@@ -124,6 +125,7 @@ export default function LeaderboardsPage() {
                 <div className={`relative mb-3 ${isFirst ? 'mt-0' : 'mt-8'}`}>
                   <img
                     src={`https://api.dicebear.com/7.x/bottts/svg?seed=${player.name}&backgroundColor=0D0D14`}
+                    loading="lazy"
                     width={isFirst ? 72 : 56}
                     height={isFirst ? 72 : 56}
                     className="rounded-full"
@@ -148,7 +150,9 @@ export default function LeaderboardsPage() {
                     borderRight: `1px solid ${isFirst ? 'rgba(240,180,41,0.20)' : 'rgba(255,255,255,0.08)'}`,
                   }}
                 >
-                  <p className="text-sm font-medium text-white mb-0.5 truncate w-full text-center">{player.name}</p>
+                  <Link href={`/players/${player.name.replace('@', '')}`}>
+                    <p className="text-sm font-medium text-white mb-0.5 truncate w-full text-center hover:text-[#F0B429] transition-colors">{player.name}</p>
+                  </Link>
                   <p className="text-[10px] mb-2" style={{ color: 'rgba(255,255,255,0.40)' }}>{player.city}</p>
                   <span className="text-xs font-medium" style={{ color: tierColors[player.tier].text }}>
                     {player.tier}
@@ -200,19 +204,20 @@ export default function LeaderboardsPage() {
                 {player.trend === 'down' && <span className="text-[10px] text-red-400">▼{player.trendAmount}</span>}
               </div>
 
-              <div className="flex items-center gap-2 min-w-0">
+              <Link href={`/players/${player.name.replace('@', '')}`} className="flex items-center gap-2 min-w-0 group">
                 <img
                   src={`https://api.dicebear.com/7.x/bottts/svg?seed=${player.name}&backgroundColor=0D0D14`}
+                  loading="lazy"
                   width={28}
                   height={28}
                   className="rounded-full flex-shrink-0"
                   alt={player.name}
                 />
                 <div className="min-w-0">
-                  <p className="text-xs font-medium text-white truncate">{player.name}</p>
+                  <p className="text-xs font-medium text-white truncate group-hover:text-[#F0B429] transition-colors">{player.name}</p>
                   <p className="text-[10px]" style={{ color: 'rgba(255,255,255,0.40)' }}>{player.city}</p>
                 </div>
-              </div>
+              </Link>
 
               <span className="text-xs truncate" style={{ color: 'rgba(255,255,255,0.50)' }}>{player.game}</span>
 
@@ -268,6 +273,7 @@ export default function LeaderboardsPage() {
             >
               <img
                 src={`https://api.dicebear.com/7.x/bottts/svg?seed=${player.name}&backgroundColor=0D0D14`}
+                loading="lazy"
                 width={36}
                 height={36}
                 className="rounded-full flex-shrink-0"

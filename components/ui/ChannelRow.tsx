@@ -62,6 +62,7 @@ function TooltipCard({
         <div className="flex items-center gap-2 mb-2.5">
           <img
             src={`https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(name)}&backgroundColor=0D0D14`}
+            loading="lazy"
             alt={name}
             className="rounded-full flex-shrink-0"
             style={{ width: 32, height: 32, opacity: isLive ? 1 : 0.5 }}
@@ -174,6 +175,7 @@ export default function ChannelRow({
         {/* Avatar */}
         <img
           src={`https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(name)}&backgroundColor=0D0D14`}
+          loading="lazy"
           alt={name}
           className="rounded-full flex-shrink-0"
           style={{ width: 28, height: 28, opacity: isLive ? 1 : 0.5 }}

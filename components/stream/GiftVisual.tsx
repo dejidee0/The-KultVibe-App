@@ -37,7 +37,7 @@ export default function GiftVisual({ twemojiHex, emoji, size = 32, showSparkle =
 
   return (
     <div className="relative" style={{ width: size, height: size }}>
-      {/* Lottie bursts outward — extends beyond the icon box */}
+      {/* Lottie bursts outward - extends beyond the icon box */}
       <Lottie
         animationData={sparkleAnimation}
         loop={false}

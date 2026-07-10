@@ -92,7 +92,7 @@ function UpcomingCard({
     <div className="bg-kv-card rounded-xl overflow-hidden flex-shrink-0 w-[220px] cursor-pointer">
       {/* Banner */}
       <div className="relative h-[100px] overflow-hidden">
-        <img src={imageSrc} alt={name} className="w-full h-full object-cover" />
+        <img src={imageSrc} alt={name} className="w-full h-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <span className="absolute top-2 left-2 text-[9px] bg-black/60 text-white/70 px-2 py-1 rounded-md">
           {game}

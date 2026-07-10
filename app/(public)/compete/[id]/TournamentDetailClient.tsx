@@ -229,22 +229,26 @@ export default function TournamentDetailClient({ tournament }: { tournament: Tou
             {Array.from({ length: displayCount }).map((_, i) => {
               const name = NAIJA_TAGS[i % NAIJA_TAGS.length]
               return (
-                <div
-                  key={i}
-                  className="rounded-lg p-3 flex flex-col items-center gap-2"
-                  style={{ background: '#111118', border: '1px solid rgba(255,255,255,0.07)' }}
-                >
-                  <img
-                    src={`https://api.dicebear.com/7.x/bottts/svg?seed=${name}${i}&backgroundColor=0D0D14`}
-                    width={40}
-                    height={40}
-                    className="rounded-full"
-                    alt={name}
-                  />
-                  <span className="text-xs truncate w-full text-center" style={{ color: 'rgba(255,255,255,0.70)' }}>
-                    {name}
-                  </span>
-                </div>
+                <Link key={i} href={`/players/Player${i}`}>
+                  <div
+                    className="rounded-lg p-3 flex flex-col items-center gap-2 transition-colors"
+                    style={{ background: '#111118', border: '1px solid rgba(255,255,255,0.07)' }}
+                    onMouseEnter={e => ((e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(240,180,41,0.30)')}
+                    onMouseLeave={e => ((e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.07)')}
+                  >
+                    <img
+                      src={`https://api.dicebear.com/7.x/bottts/svg?seed=${name}${i}&backgroundColor=0D0D14`}
+                      loading="lazy"
+                      width={40}
+                      height={40}
+                      className="rounded-full"
+                      alt={name}
+                    />
+                    <span className="text-xs truncate w-full text-center" style={{ color: 'rgba(255,255,255,0.70)' }}>
+                      {name}
+                    </span>
+                  </div>
+                </Link>
               )
             })}
             {extraCount > 0 && (

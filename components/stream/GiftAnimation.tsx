@@ -142,6 +142,7 @@ function GiftFloat({
         >
           <img
             src={`https://api.dicebear.com/7.x/bottts/svg?seed=${activeGift.sender}&backgroundColor=0D0D14`}
+            loading="lazy"
             alt={activeGift.sender}
             style={{ width: 18, height: 18, borderRadius: '50%', flexShrink: 0 }}
           />
@@ -235,6 +236,7 @@ function BigGiftBanner({
         <div className="flex items-center gap-1.5 mb-0.5">
           <img
             src={`https://api.dicebear.com/7.x/bottts/svg?seed=${activeGift.sender}&backgroundColor=0D0D14`}
+            loading="lazy"
             alt={activeGift.sender}
             style={{ width: 18, height: 18, borderRadius: '50%', flexShrink: 0 }}
           />
@@ -250,7 +252,7 @@ function BigGiftBanner({
         </p>
       </div>
 
-      {/* Tier badge — springs in with overshoot */}
+      {/* Tier badge - springs in with overshoot */}
       <motion.div
         initial={{ scale: 0, rotate: -12 }}
         animate={{ scale: 1, rotate: 0 }}

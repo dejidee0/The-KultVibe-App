@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useRef, useCallback, useEffect } from 'react'
+import Link from 'next/link'
 import { HugeiconsIcon } from '@hugeicons/react'
 import {
   EyeIcon,
@@ -178,6 +179,7 @@ export default function StreamWatchClient({ stream }: { stream: StreamData }) {
           >
             <img
               src={`https://api.dicebear.com/7.x/bottts/svg?seed=${stream.streamer}&backgroundColor=0D0D14`}
+              loading="lazy"
               width={80}
               height={80}
               className="rounded-full"
@@ -222,6 +224,7 @@ export default function StreamWatchClient({ stream }: { stream: StreamData }) {
               <div className="flex items-center gap-3">
                 <img
                   src={`https://api.dicebear.com/7.x/bottts/svg?seed=${stream.streamer}&backgroundColor=0D0D14`}
+                  loading="lazy"
                   width={40}
                   height={40}
                   className="rounded-full flex-shrink-0"
@@ -229,7 +232,7 @@ export default function StreamWatchClient({ stream }: { stream: StreamData }) {
                 />
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <span className="text-base font-semibold text-white">{stream.streamer}</span>
+                    <Link href={`/players/${stream.id}`} className="text-base font-semibold text-white hover:text-[#F0B429] transition-colors">{stream.streamer}</Link>
                     <CheckIcon />
                     {stream.isLive && (
                       <span className="text-[10px] bg-[#FF4D6D] text-white px-2 py-0.5 rounded font-bold">LIVE</span>

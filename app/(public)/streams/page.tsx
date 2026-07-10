@@ -128,6 +128,7 @@ function HeroStreamCard({ stream }: { stream: HeroStream }) {
         <div className="flex items-center gap-2">
           <img
             src={`https://api.dicebear.com/7.x/bottts/svg?seed=${stream.streamer}&backgroundColor=0D0D14`}
+            loading="lazy"
             alt={stream.streamer}
             className="rounded-full flex-shrink-0"
             style={{ width: 20, height: 20 }}
@@ -326,7 +327,7 @@ export default function StreamsPage() {
         })}
       </div>
 
-      {/* ---- Section 3: Controls row — 3 equal columns so search is truly centred ---- */}
+      {/* ---- Section 3: Controls row - 3 equal columns so search is truly centred ---- */}
       <div className="flex items-center">
         {/* Left: stream count */}
         <div className="flex-1">

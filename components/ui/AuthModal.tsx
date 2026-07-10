@@ -86,7 +86,7 @@ export default function AuthModal() {
                     onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = p.hoverBg; (e.currentTarget as HTMLButtonElement).style.color = '#fff'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = p.bg; (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.80)'; }}
                   >
-                    <img src={p.icon} width={16} height={16} alt={p.label} />
+                    <img src={p.icon} width={16} height={16} alt={p.label} loading="lazy" />
                     {p.label}
                   </button>
                 ))}

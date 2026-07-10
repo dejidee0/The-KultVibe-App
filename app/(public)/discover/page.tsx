@@ -103,6 +103,7 @@ export default function DiscoverPage() {
             <div className="flex-shrink-0 relative self-start mt-0.5">
               <img
                 src={`https://api.dicebear.com/7.x/bottts/svg?seed=${item.actorSeed}&backgroundColor=0D0D14`}
+                loading="lazy"
                 width={40}
                 height={40}
                 className="rounded-full"
@@ -147,7 +148,7 @@ export default function DiscoverPage() {
               {item.value && (
                 <span className="text-[10px] font-semibold text-[#F0B429]">{item.value}</span>
               )}
-              <Link href={item.actionHref}>
+              <Link href={(item.type === 'winner' || item.type === 'rank_up') ? `/players/${item.actorSeed}` : item.actionHref}>
                 <button
                   className="text-xs px-3 py-1.5 rounded-md font-medium whitespace-nowrap transition-colors"
                   style={
@@ -242,6 +243,7 @@ export default function DiscoverPage() {
                 <div className="flex items-center gap-2.5 hover:opacity-80 transition-opacity cursor-pointer">
                   <img
                     src={`https://api.dicebear.com/7.x/bottts/svg?seed=${c.seed}&backgroundColor=0D0D14`}
+                    loading="lazy"
                     width={32}
                     height={32}
                     className="rounded-full flex-shrink-0"

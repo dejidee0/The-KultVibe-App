@@ -60,6 +60,7 @@ function FeaturedCreatorCard({ creator }: { creator: CreatorData }) {
           <div className="absolute left-4 flex items-center justify-between w-[calc(100%-32px)]" style={{ bottom: -24 }}>
             <img
               src={`https://api.dicebear.com/7.x/bottts/svg?seed=${creator.name}&backgroundColor=0D0D14`}
+              loading="lazy"
               width={48}
               height={48}
               className="rounded-full flex-shrink-0"
@@ -133,6 +134,7 @@ function CreatorCard({ creator }: { creator: CreatorData }) {
           <div className="absolute left-3 flex items-center justify-between w-[calc(100%-24px)]" style={{ bottom: -20 }}>
             <img
               src={`https://api.dicebear.com/7.x/bottts/svg?seed=${creator.name}&backgroundColor=0D0D14`}
+              loading="lazy"
               width={40}
               height={40}
               className="rounded-full flex-shrink-0"

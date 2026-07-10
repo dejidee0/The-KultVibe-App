@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Money01Icon } from '@hugeicons/core-free-icons';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { leaderboardData } from '@/lib/leaderboardData';
@@ -33,6 +34,7 @@ function PlayerCard({ rank, name, city, game, earnings }: typeof PLAYERS[0]) {
         </div>
         <img
           src={`https://api.dicebear.com/7.x/bottts/svg?seed=${name}&backgroundColor=0D0D14`}
+          loading="lazy"
           width={32}
           height={32}
           className="rounded-full flex-shrink-0"
@@ -81,7 +83,9 @@ export default function LeaderboardStrip() {
         >
           {/* Render twice for seamless loop */}
           {[...PLAYERS, ...PLAYERS].map((p, i) => (
-            <PlayerCard key={i} {...p} />
+            <Link key={i} href={`/players/${p.name.replace('@', '')}`}>
+              <PlayerCard {...p} />
+            </Link>
           ))}
         </div>
       </div>
