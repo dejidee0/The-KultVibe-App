@@ -319,7 +319,7 @@ export default function CreatorsPage() {
             </div>
             <h3 className="text-xl font-medium text-white mb-2">Find your next creator partner</h3>
             <p className="text-sm max-w-md" style={{ color: 'rgba(255,255,255,0.50)' }}>
-              Connect with Africa's top gaming, music, and lifestyle creators. Run sponsored tournaments, brand activations, and content campaigns on KultVibe.
+              Connect with Africa&apos;s top gaming, music, and lifestyle creators. Run sponsored tournaments, brand activations, and content campaigns on KultVibe.
             </p>
           </div>
 
