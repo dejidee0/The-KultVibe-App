@@ -101,35 +101,34 @@ export default function CommunityClient() {
         style={{ borderRight: '1px solid rgba(255,255,255,0.07)' }}
       >
         {/* Vertical tabs */}
-        <div className="p-3" style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-          <div className="flex flex-wrap gap-1">
-            {communityData.map((vertical) => (
+        <div className="pt-2 pb-1" style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+          <p className="text-[10px] text-white/25 uppercase tracking-wider px-4 pb-1.5">Verticals</p>
+          {communityData.map((vertical) => {
+            const isActive = activeVertical === vertical.id
+            return (
               <button
                 key={vertical.id}
                 onClick={() => { setActiveVertical(vertical.id); setActiveRoom(vertical.rooms[0].id) }}
-                className="px-2.5 py-1 rounded-md text-[11px] font-medium transition-colors"
-                style={
-                  activeVertical === vertical.id
-                    ? { background: 'rgba(240,180,41,0.20)', color: '#F0B429', border: '1px solid rgba(240,180,41,0.30)' }
-                    : { color: 'rgba(255,255,255,0.40)', border: '1px solid transparent' }
-                }
-                onMouseEnter={e => {
-                  if (activeVertical !== vertical.id) {
-                    (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.60)'
-                    ;(e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.05)'
-                  }
-                }}
-                onMouseLeave={e => {
-                  if (activeVertical !== vertical.id) {
-                    (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.40)'
-                    ;(e.currentTarget as HTMLElement).style.background = 'transparent'
-                  }
-                }}
+                className="w-full flex items-center gap-2.5 px-4 py-2 text-left transition-colors relative"
+                style={{ background: isActive ? 'rgba(240,180,41,0.07)' : 'transparent' }}
+                onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)' }}
+                onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'transparent' }}
               >
-                {vertical.label}
+                {isActive && (
+                  <div className="absolute left-0 top-1 bottom-1 w-0.5 rounded-r-full" style={{ background: '#F0B429' }} />
+                )}
+                <span
+                  className="text-[12px] font-medium"
+                  style={{ color: isActive ? '#F0B429' : 'rgba(255,255,255,0.45)' }}
+                >
+                  {vertical.label}
+                </span>
+                <span className="ml-auto text-[10px]" style={{ color: 'rgba(255,255,255,0.20)' }}>
+                  {vertical.rooms.length}
+                </span>
               </button>
-            ))}
-          </div>
+            )
+          })}
         </div>
 
         {/* Rooms list */}
