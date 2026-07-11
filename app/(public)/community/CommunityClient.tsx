@@ -88,9 +88,8 @@ export default function CommunityClient() {
     setInputValue('')
   }
 
-  const borderMuted  = { borderColor: 'rgba(255,255,255,0.07)' }
-  const bgWhite6     = { background: 'rgba(255,255,255,0.06)' }
-  const bgWhite3     = { background: 'rgba(255,255,255,0.03)' }
+  const bgWhite6 = { background: 'rgba(255,255,255,0.06)' }
+  const bgWhite3 = { background: 'rgba(255,255,255,0.03)' }
 
   return (
     <div className="flex h-full overflow-hidden">
