@@ -109,14 +109,11 @@ export default function CommunityClient() {
               <button
                 key={vertical.id}
                 onClick={() => { setActiveVertical(vertical.id); setActiveRoom(vertical.rooms[0].id) }}
-                className="w-full flex items-center gap-2.5 px-4 py-2 text-left transition-colors relative"
+                className="w-full flex items-center gap-2.5 px-4 py-2 text-left transition-colors"
                 style={{ background: isActive ? 'rgba(240,180,41,0.07)' : 'transparent' }}
                 onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)' }}
                 onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'transparent' }}
               >
-                {isActive && (
-                  <div className="absolute left-0 top-1 bottom-1 w-0.5 rounded-r-full" style={{ background: '#F0B429' }} />
-                )}
                 <span
                   className="text-[12px] font-medium"
                   style={{ color: isActive ? '#F0B429' : 'rgba(255,255,255,0.45)' }}
@@ -139,11 +136,7 @@ export default function CommunityClient() {
               key={room.id}
               onClick={() => setActiveRoom(room.id)}
               className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left transition-colors mb-0.5"
-              style={
-                activeRoom === room.id
-                  ? { background: 'rgba(240,180,41,0.10)', border: '1px solid rgba(240,180,41,0.20)' }
-                  : { border: '1px solid transparent' }
-              }
+              style={{ background: activeRoom === room.id ? 'rgba(240,180,41,0.10)' : 'transparent' }}
               onMouseEnter={e => {
                 if (activeRoom !== room.id) {
                   (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.05)'
@@ -155,7 +148,7 @@ export default function CommunityClient() {
                 }
               }}
             >
-              <span className="text-base flex-shrink-0">{room.emoji}</span>
+              <HugeiconsIcon icon={room.icon} size={15} color={activeRoom === room.id ? '#F0B429' : 'rgba(255,255,255,0.40)'} strokeWidth={1.5} className="flex-shrink-0" />
               <div className="flex-1 min-w-0">
                 <p
                   className="text-xs font-medium truncate"
@@ -200,7 +193,7 @@ export default function CommunityClient() {
           style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
         >
           <div className="flex items-center gap-2">
-            <span className="text-lg">{currentRoom.emoji}</span>
+            <HugeiconsIcon icon={currentRoom.icon} size={18} color="rgba(255,255,255,0.60)" strokeWidth={1.5} />
             <div>
               <p className="text-sm font-medium text-white">{currentRoom.name}</p>
               <p className="text-[10px] text-white/35">{currentRoom.description}</p>
@@ -288,7 +281,7 @@ export default function CommunityClient() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                placeholder={`Message ${currentRoom.emoji} ${currentRoom.name}...`}
+                placeholder={`Message ${currentRoom.name}...`}
                 className="w-full rounded-lg px-4 py-2.5 text-sm text-white outline-none transition-colors pr-10"
                 style={{
                   ...bgWhite6,

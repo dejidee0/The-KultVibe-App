@@ -1,3 +1,13 @@
+import type { IconSvgElement } from '@hugeicons/react'
+import {
+  GamepadIcon, GunIcon, Target01Icon, FootballIcon,
+  MusicNote01Icon, MusicNote02Icon, Fire02Icon,
+  LaptopProgrammingIcon, Shield01Icon, Rocket01Icon,
+  EarthIcon, Camera01Icon,
+  LiveStreaming01Icon, ChartUpIcon,
+  StarIcon, Megaphone01Icon,
+} from '@hugeicons/core-free-icons'
+
 export interface CommunityMessage {
   id: string
   user: string
@@ -10,7 +20,7 @@ export interface CommunityMessage {
 export interface CommunityRoom {
   id: string
   name: string
-  emoji: string
+  icon: IconSvgElement
   description: string
   members: number
   online: number
@@ -32,7 +42,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'gaming-general',
         name: 'General',
-        emoji: '🎮',
+        icon: GamepadIcon,
         description: 'General gaming talk, all games welcome',
         members: 1240,
         online: 89,
@@ -50,7 +60,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'gaming-codm',
         name: 'COD Mobile',
-        emoji: '🔫',
+        icon: GunIcon,
         description: 'COD Mobile tips, loadouts, tournament talk',
         members: 856,
         online: 62,
@@ -66,7 +76,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'gaming-pubg',
         name: 'PUBG Mobile',
-        emoji: '🎯',
+        icon: Target01Icon,
         description: 'PUBG Mobile squads, strategies, tournaments',
         members: 634,
         online: 41,
@@ -80,7 +90,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'gaming-eafc',
         name: 'EA FC / Sports',
-        emoji: '⚽',
+        icon: FootballIcon,
         description: 'EA FC, FIFA, sports gaming community',
         members: 445,
         online: 28,
@@ -99,7 +109,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'music-general',
         name: 'General',
-        emoji: '🎵',
+        icon: MusicNote01Icon,
         description: 'Music talk, Afrobeats, beats, collabs',
         members: 589,
         online: 34,
@@ -113,7 +123,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'music-production',
         name: 'Production',
-        emoji: '🎹',
+        icon: MusicNote02Icon,
         description: 'Beats, production tips, DAW talk',
         members: 312,
         online: 19,
@@ -126,7 +136,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'music-battles',
         name: 'Beat Battles',
-        emoji: '🥊',
+        icon: Fire02Icon,
         description: 'Beat battle announcements, results, discussions',
         members: 198,
         online: 12,
@@ -144,7 +154,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'tech-general',
         name: 'General',
-        emoji: '💻',
+        icon: LaptopProgrammingIcon,
         description: 'Tech talk, dev discussions, industry news',
         members: 423,
         online: 31,
@@ -158,7 +168,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'tech-ctf',
         name: 'CTF & Hacking',
-        emoji: '🔐',
+        icon: Shield01Icon,
         description: 'CTF challenges, ethical hacking, security',
         members: 234,
         online: 18,
@@ -171,7 +181,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'tech-hackathons',
         name: 'Hackathons',
-        emoji: '🚀',
+        icon: Rocket01Icon,
         description: 'Hackathon teams, ideas, collaboration',
         members: 178,
         online: 14,
@@ -189,7 +199,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'lifestyle-general',
         name: 'General',
-        emoji: '🌍',
+        icon: EarthIcon,
         description: 'Lagos life, culture, vibes, everything',
         members: 312,
         online: 22,
@@ -202,7 +212,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'lifestyle-photography',
         name: 'Photography',
-        emoji: '📸',
+        icon: Camera01Icon,
         description: 'Photography tips, Lagos shoots, gear talk',
         members: 189,
         online: 11,
@@ -221,7 +231,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'streaming-general',
         name: 'General',
-        emoji: '📡',
+        icon: LiveStreaming01Icon,
         description: 'Streaming tips, growth, equipment talk',
         members: 267,
         online: 19,
@@ -235,7 +245,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'streaming-growth',
         name: 'Growth & Tips',
-        emoji: '📈',
+        icon: ChartUpIcon,
         description: 'How to grow your audience on KultVibe',
         members: 198,
         online: 15,
@@ -254,7 +264,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'creator-general',
         name: 'General',
-        emoji: '⭐',
+        icon: StarIcon,
         description: 'Creator economy, brand deals, monetisation',
         members: 156,
         online: 9,
@@ -267,7 +277,7 @@ export const communityData: CommunityVertical[] = [
       {
         id: 'creator-announcements',
         name: 'Announcements',
-        emoji: '📢',
+        icon: Megaphone01Icon,
         description: 'Official KultVibe announcements',
         members: 1240,
         online: 89,

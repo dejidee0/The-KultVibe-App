@@ -12,28 +12,30 @@ export default function IconBar() {
 
   return (
     <div
-      className="flex flex-col items-center py-4"
+      className="flex flex-col items-center"
       style={{
         width: 56,
         background: '#0D0D14',
         borderRight: '1px solid rgba(255,255,255,0.06)',
       }}
     >
-      {/* Logo */}
-      <Link href="/">
-        <div
-          className="flex-shrink-0 overflow-hidden"
-          style={{ width: 40, height: 40 }}
-        >
-          <img
-            src="/logo.png"
-            alt="KultVibe"
-            width={40}
-            height={40}
-            style={{ transform: 'scale(2.2)', transformOrigin: 'center', display: 'block' }}
-          />
-        </div>
-      </Link>
+      {/* Logo — same height as Topbar so they sit flush */}
+      <div className="flex items-center justify-center flex-shrink-0" style={{ height: 48 }}>
+        <Link href="/">
+          <div
+            className="flex-shrink-0 overflow-hidden"
+            style={{ width: 40, height: 40 }}
+          >
+            <img
+              src="/logo.png"
+              alt="KultVibe"
+              width={40}
+              height={40}
+              style={{ transform: 'scale(2.2)', transformOrigin: 'center', display: 'block' }}
+            />
+          </div>
+        </Link>
+      </div>
 
       <div className="flex-1" />
 
