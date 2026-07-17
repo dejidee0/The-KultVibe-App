@@ -5,7 +5,7 @@ import Lottie from 'lottie-react';
 import sparkleAnimation from '@/lib/lottie/sparkle.json';
 
 type Props = {
-  twemojiHex: string;
+  twemojiHex?: string;
   emoji: string;
   size?: number;
   showSparkle?: boolean;
@@ -14,13 +14,11 @@ type Props = {
 export default function GiftVisual({ twemojiHex, emoji, size = 32, showSparkle = false }: Props) {
   const [imgFailed, setImgFailed] = useState(false);
 
-  const src = `https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/${twemojiHex}.svg`;
+  const useImage = !!twemojiHex && !imgFailed;
 
-  const icon = imgFailed ? (
-    <span style={{ fontSize: size, lineHeight: 1 }}>{emoji}</span>
-  ) : (
+  const icon = useImage ? (
     <img
-      src={src}
+      src={`https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/${twemojiHex}.svg`}
       alt={emoji}
       width={size}
       height={size}
@@ -28,6 +26,8 @@ export default function GiftVisual({ twemojiHex, emoji, size = 32, showSparkle =
       style={{ display: 'block' }}
       draggable={false}
     />
+  ) : (
+    <span style={{ fontSize: size, lineHeight: 1 }}>{emoji}</span>
   );
 
   if (!showSparkle) return icon;

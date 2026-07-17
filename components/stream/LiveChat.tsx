@@ -28,9 +28,9 @@ const newMessages = [
   { user: '@AbokiGamer', color: '#34D399', text: 'GG GG GG', isGift: false },
   { user: '@SaharaPlay', color: '#F472B6', text: 'subscribe guys he deserves it', isGift: false },
   // Gift messages mixed in
-  { user: '@NaijaGamer', color: '#F0B429', text: 'sent 👑 Crown · ₦1,000', isGift: true },
-  { user: '@LagosVibes', color: '#F0B429', text: 'sent 💎 Diamond · ₦2,500', isGift: true },
-  { user: '@KanoKing', color: '#F0B429', text: 'sent 🚀 Rocket · ₦5,000', isGift: true },
+  { user: '@NaijaGamer', color: '#F0B429', text: 'sent 👑 Afro Crown · 10,000 VC', isGift: true },
+  { user: '@LagosVibes', color: '#F0B429', text: 'sent 💎 Diamond Fang · 50,000 VC', isGift: true },
+  { user: '@KanoKing', color: '#F0B429', text: 'sent ⚡ Lagos Storm · 25,000 VC', isGift: true },
 ];
 
 export default function LiveChat() {

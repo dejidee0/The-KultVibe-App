@@ -9,7 +9,7 @@ type Gift = {
   id: string
   name: string
   emoji: string
-  twemojiHex: string
+  twemojiHex?: string
   price: number
 }
 
@@ -28,12 +28,13 @@ type GiftConfig = {
 }
 
 const GIFT_CONFIGS: Record<string, GiftConfig> = {
-  fire:    { color: '#FF6B35', glow: 'rgba(255,107,53,0.7)',  tier: 1, size: 40 },
-  crown:   { color: '#F0B429', glow: 'rgba(240,180,41,0.7)',  tier: 2, size: 44 },
-  diamond: { color: '#F0B429', glow: 'rgba(240,180,41,0.7)',  tier: 3, size: 52 },
-  rocket:  { color: '#F0B429', glow: 'rgba(240,180,41,0.7)',  tier: 3, size: 52 },
-  trophy:  { color: '#FBBF24', glow: 'rgba(251,191,36,0.85)', tier: 4, size: 60 },
-  lion:    { color: '#EF4444', glow: 'rgba(239,68,68,0.85)',  tier: 5, size: 68 },
+  'drum-drop':    { color: '#F97316', glow: 'rgba(249,115,22,0.7)',   tier: 1, size: 36 },
+  'jollof-flame': { color: '#EF4444', glow: 'rgba(239,68,68,0.7)',    tier: 1, size: 40 },
+  'naija-lion':   { color: '#F0B429', glow: 'rgba(240,180,41,0.7)',   tier: 2, size: 48 },
+  'afro-crown':   { color: '#F0B429', glow: 'rgba(240,180,41,0.85)',  tier: 3, size: 52 },
+  'lagos-storm':  { color: '#FBBF24', glow: 'rgba(251,191,36,0.85)', tier: 4, size: 60 },
+  'diamond-fang': { color: '#60A5FA', glow: 'rgba(96,165,250,0.85)',  tier: 5, size: 68 },
+  'pan-africa':   { color: '#34D399', glow: 'rgba(52,211,153,0.85)',  tier: 5, size: 68 },
 }
 
 function getConfig(giftId: string): GiftConfig {
@@ -43,31 +44,43 @@ function getConfig(giftId: string): GiftConfig {
 export default function GiftAnimation() {
   const { activeGifts, removeGift } = useGiftStore()
 
-  const floatingGifts = activeGifts.filter(g => getConfig(g.gift.id).tier < 4)
-  const bigGifts      = activeGifts.filter(g => getConfig(g.gift.id).tier >= 4)
+  const kultQueenGifts = activeGifts.filter(g => g.gift.id === 'kult-queen')
+  const floatingGifts  = activeGifts.filter(g => g.gift.id !== 'kult-queen' && getConfig(g.gift.id).tier < 4)
+  const bigGifts       = activeGifts.filter(g => g.gift.id !== 'kult-queen' && getConfig(g.gift.id).tier >= 4)
 
   return (
-    <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
+    <>
+      <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
+        <AnimatePresence>
+          {floatingGifts.map((activeGift, index) => (
+            <GiftFloat
+              key={activeGift.id}
+              activeGift={activeGift}
+              index={index}
+              config={getConfig(activeGift.gift.id)}
+              onComplete={() => removeGift(activeGift.id)}
+            />
+          ))}
+          {bigGifts.slice(-1).map((activeGift) => (
+            <BigGiftBanner
+              key={activeGift.id}
+              activeGift={activeGift}
+              config={getConfig(activeGift.gift.id)}
+              onComplete={() => removeGift(activeGift.id)}
+            />
+          ))}
+        </AnimatePresence>
+      </div>
       <AnimatePresence>
-        {floatingGifts.map((activeGift, index) => (
-          <GiftFloat
+        {kultQueenGifts.slice(-1).map((activeGift) => (
+          <KultQueenOverlay
             key={activeGift.id}
             activeGift={activeGift}
-            index={index}
-            config={getConfig(activeGift.gift.id)}
-            onComplete={() => removeGift(activeGift.id)}
-          />
-        ))}
-        {bigGifts.slice(-1).map((activeGift) => (
-          <BigGiftBanner
-            key={activeGift.id}
-            activeGift={activeGift}
-            config={getConfig(activeGift.gift.id)}
             onComplete={() => removeGift(activeGift.id)}
           />
         ))}
       </AnimatePresence>
-    </div>
+    </>
   )
 }
 
@@ -151,7 +164,7 @@ function GiftFloat({
           </span>
           <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.30)' }}>·</span>
           <span style={{ fontSize: '11px', fontWeight: 700, color: '#F0B429' }}>
-            ₦{activeGift.gift.price.toLocaleString()}
+            {activeGift.gift.price.toLocaleString()} VC
           </span>
         </motion.div>
       </div>
@@ -248,7 +261,7 @@ function BigGiftBanner({
           sent a <span style={{ color: '#fff', fontWeight: 600 }}>{activeGift.gift.name}</span>
         </p>
         <p style={{ fontSize: '18px', fontWeight: 800, color: '#F0B429', letterSpacing: '-0.02em', lineHeight: 1.2, marginTop: 2 }}>
-          ₦{activeGift.gift.price.toLocaleString()}
+          {activeGift.gift.price.toLocaleString()} VC
         </p>
       </div>
 
@@ -284,6 +297,63 @@ function BigGiftBanner({
         animate={{ width: '0%' }}
         transition={{ duration: DURATION / 1000, ease: 'linear' }}
       />
+    </motion.div>
+  )
+}
+
+function KultQueenOverlay({
+  activeGift,
+  onComplete,
+}: {
+  activeGift: ActiveGift
+  onComplete: () => void
+}) {
+  useEffect(() => {
+    const timer = setTimeout(onComplete, 4000)
+    return () => clearTimeout(timer)
+  }, [onComplete])
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 9999,
+        background: 'rgba(0,0,0,0.92)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '16px',
+      }}
+    >
+      <motion.div
+        initial={{ scale: 0, rotate: -180 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ type: 'spring', duration: 0.6 }}
+        style={{ fontSize: '120px', lineHeight: 1 }}
+      >
+        👸🏾
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+        style={{ textAlign: 'center' }}
+      >
+        <p style={{ fontSize: '28px', fontWeight: 600, color: '#F0B429', marginBottom: '8px' }}>
+          KULT QUEEN
+        </p>
+        <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.70)' }}>
+          {activeGift.sender} just sent the ultimate gift
+        </p>
+        <p style={{ fontSize: '14px', color: '#F0B429', marginTop: '4px' }}>
+          500,000 VC
+        </p>
+      </motion.div>
     </motion.div>
   )
 }

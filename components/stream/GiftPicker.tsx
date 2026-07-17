@@ -53,6 +53,21 @@ export default function GiftPicker() {
               width: '280px',
             }}
           >
+            {/* VC Balance */}
+            <div style={{
+              background: 'rgba(240,180,41,0.10)',
+              border: '0.5px solid rgba(240,180,41,0.20)',
+              borderRadius: '8px',
+              padding: '8px 12px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginBottom: '12px',
+            }}>
+              <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.50)' }}>Your VC balance</span>
+              <span style={{ fontSize: '13px', fontWeight: 500, color: '#F0B429' }}>15,000 VC</span>
+            </div>
+
             {/* Header */}
             <div
               style={{
@@ -113,7 +128,7 @@ export default function GiftPicker() {
                     {gift.name}
                   </span>
                   <span style={{ fontSize: '10px', color: '#F0B429' }}>
-                    ₦{gift.price.toLocaleString()}
+                    {gift.price.toLocaleString()} VC
                   </span>
                 </button>
               ))}

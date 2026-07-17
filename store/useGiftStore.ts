@@ -4,7 +4,7 @@ interface Gift {
   id: string
   name: string
   emoji: string
-  twemojiHex: string
+  twemojiHex?: string
   price: number
 }
 
@@ -25,12 +25,14 @@ interface GiftStore {
 }
 
 export const GIFTS: Gift[] = [
-  { id: 'fire',    name: 'Fire',    emoji: '🔥', twemojiHex: '1f525', price: 500 },
-  { id: 'crown',   name: 'Crown',   emoji: '👑', twemojiHex: '1f451', price: 1000 },
-  { id: 'diamond', name: 'Diamond', emoji: '💎', twemojiHex: '1f48e', price: 2500 },
-  { id: 'rocket',  name: 'Rocket',  emoji: '🚀', twemojiHex: '1f680', price: 5000 },
-  { id: 'trophy',  name: 'Trophy',  emoji: '🏆', twemojiHex: '1f3c6', price: 10000 },
-  { id: 'lion',    name: 'Lion',    emoji: '🦁', twemojiHex: '1f981', price: 25000 },
+  { id: 'drum-drop',    name: 'Drum Drop',    emoji: '🥁',  price: 500    },
+  { id: 'jollof-flame', name: 'Jollof Flame', emoji: '🔥',  price: 1500   },
+  { id: 'naija-lion',   name: 'Naija Lion',   emoji: '🦁',  price: 5000   },
+  { id: 'afro-crown',   name: 'Afro Crown',   emoji: '👑',  price: 10000  },
+  { id: 'lagos-storm',  name: 'Lagos Storm',  emoji: '⚡',  price: 25000  },
+  { id: 'diamond-fang', name: 'Diamond Fang', emoji: '💎',  price: 50000  },
+  { id: 'pan-africa',   name: 'Pan-Africa',   emoji: '🌍',  price: 100000 },
+  { id: 'kult-queen',   name: 'Kult Queen',   emoji: '👸🏾', price: 500000 },
 ]
 
 export const useGiftStore = create<GiftStore>((set) => ({
