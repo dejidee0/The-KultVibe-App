@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Cancel01Icon } from '@hugeicons/core-free-icons';
@@ -8,6 +8,27 @@ import { useAuthStore } from '@/store/useAuthStore';
 
 export default function AuthModal() {
   const { isModalOpen, modalView, closeModal, toggleView } = useAuthStore();
+  const [username, setUsername]   = useState('')
+  const [gamerTag, setGamerTag]   = useState('')
+  const [email, setEmail]         = useState('')
+  const [password, setPassword]   = useState('')
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted]   = useState(false)
+
+  async function handleRegister() {
+    if (!email.trim() || submitting) return
+    setSubmitting(true)
+    try {
+      await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, username, gamerTag }),
+      })
+      setSubmitted(true)
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   return (
     <AnimatePresence>
@@ -102,23 +123,32 @@ export default function AuthModal() {
               {/* Fields */}
               {modalView === 'register' ? (
                 <div className="flex flex-col gap-3 mb-5">
-                  <div className="grid grid-cols-2 gap-3">
-                    <input type="text" placeholder="Username" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-yellow-500/50 transition-colors" />
-                    <input type="text" placeholder="Gamer tag (optional)" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-yellow-500/50 transition-colors" />
-                  </div>
-                  <input type="email" placeholder="Email address" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-yellow-500/50 transition-colors" />
-                  <input type="password" placeholder="Password" className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-yellow-500/50 transition-colors" />
-                  <select className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white/60 outline-none focus:border-yellow-500/50 transition-colors">
-                    <option value="" disabled>Primary game / vertical</option>
-                    <option>COD Mobile</option>
-                    <option>PUBG Mobile</option>
-                    <option>EA FC</option>
-                    <option>Free Fire</option>
-                    <option>Music / Beats</option>
-                    <option>Tech / CTF</option>
-                    <option>Lifestyle / Vlog</option>
-                    <option>Streaming</option>
-                  </select>
+                  {submitted ? (
+                    <div className="rounded-lg px-4 py-5 text-center" style={{ background: 'rgba(16,185,129,0.10)', border: '1px solid rgba(16,185,129,0.25)' }}>
+                      <p className="text-sm font-medium" style={{ color: '#10B981' }}>You&apos;re on the list 🎉</p>
+                      <p className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.45)' }}>We&apos;ll reach out when Season 1 goes live.</p>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="grid grid-cols-2 gap-3">
+                        <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-yellow-500/50 transition-colors" />
+                        <input type="text" placeholder="Gamer tag (optional)" value={gamerTag} onChange={e => setGamerTag(e.target.value)} className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-yellow-500/50 transition-colors" />
+                      </div>
+                      <input type="email" placeholder="Email address" value={email} onChange={e => setEmail(e.target.value)} className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-yellow-500/50 transition-colors" />
+                      <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/30 outline-none focus:border-yellow-500/50 transition-colors" />
+                      <select className="bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white/60 outline-none focus:border-yellow-500/50 transition-colors">
+                        <option value="" disabled>Primary game / vertical</option>
+                        <option>COD Mobile</option>
+                        <option>PUBG Mobile</option>
+                        <option>EA FC</option>
+                        <option>Free Fire</option>
+                        <option>Music / Beats</option>
+                        <option>Tech / CTF</option>
+                        <option>Lifestyle / Vlog</option>
+                        <option>Streaming</option>
+                      </select>
+                    </>
+                  )}
                 </div>
               ) : (
                 <div className="flex flex-col gap-3 mb-5">
@@ -131,14 +161,18 @@ export default function AuthModal() {
               )}
 
               {/* Submit */}
-              <button
-                className="w-full font-medium py-3 rounded-lg text-sm transition-colors mb-4"
-                style={{ background: '#F0B429', color: '#08080D' }}
-                onMouseEnter={e => (e.currentTarget.style.background = '#D4A017')}
-                onMouseLeave={e => (e.currentTarget.style.background = '#F0B429')}
-              >
-                {modalView === 'register' ? 'Create account' : 'Sign in'}
-              </button>
+              {!submitted && (
+                <button
+                  onClick={modalView === 'register' ? handleRegister : undefined}
+                  disabled={submitting}
+                  className="w-full font-medium py-3 rounded-lg text-sm transition-colors mb-4"
+                  style={{ background: '#F0B429', color: '#08080D', opacity: submitting ? 0.7 : 1 }}
+                  onMouseEnter={e => { if (!submitting) (e.currentTarget.style.background = '#D4A017') }}
+                  onMouseLeave={e => (e.currentTarget.style.background = '#F0B429')}
+                >
+                  {submitting ? 'Joining…' : modalView === 'register' ? 'Create account' : 'Sign in'}
+                </button>
+              )}
 
               {/* Toggle */}
               <p className="text-xs text-white/35 text-center">

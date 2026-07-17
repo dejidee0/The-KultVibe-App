@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { HugeiconsIcon } from '@hugeicons/react';
 import ChannelRow from '@/components/ui/ChannelRow';
 import { liveChannels, followingChannels, categories } from './sidebarData';
@@ -64,9 +65,10 @@ export default function ChannelPanel() {
           {categories.map((cat) => {
             const isActive = activeCategory === cat.name;
             return (
-              <div
+              <Link
                 key={cat.id}
-                onClick={() => setActiveCategory((prev) => (prev === cat.name ? null : cat.name))}
+                href={`/streams?category=${cat.id}`}
+                onClick={() => setActiveCategory(cat.name)}
                 className={`flex items-center gap-[10px] cursor-pointer transition-colors hover:bg-white/5 ${
                   isActive
                     ? 'text-white bg-yellow-500/10 rounded-md pl-3'
@@ -78,7 +80,7 @@ export default function ChannelPanel() {
                 <span className="font-medium" style={{ fontSize: 13 }}>
                   {cat.name}
                 </span>
-              </div>
+              </Link>
             );
           })}
         </div>
